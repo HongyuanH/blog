@@ -23,9 +23,19 @@ jwillmer:
   initial:      jwillmer
   name:         "Jens Willmer"        
   cover:        /assets/mountain-alternative-cover.jpg  
-  picture:      /assets/jwillmer.jpg  
+  picture:      /assets/WeiSuoMe.png
   bio:          All about technology 
   location:     Germany 
   website:      "http://jwillmer.de/about" 
   twitter:      jenswillmer
   github:       jwillmer
+hongyuan:
+  initial:      hongyuan
+  name:         "Hongyuan Huang"        
+  cover:        /assets/mountain-alternative-cover.jpg  
+  picture:      /assets/WeiSuoMe.png
+  bio:          TO_BE_ADDED
+  location:     UK
+  website:      "http://hongyuanh.github.io/blog/about" 
+  twitter:      
+  github:       hongyuanh
