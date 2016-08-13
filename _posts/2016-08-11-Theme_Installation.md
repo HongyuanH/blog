@@ -15,14 +15,14 @@ author:            hongyuan
 * Git
 * A Github account
 
-If you don't know much about Git, have a look at [Getting Started with GitHub Desktop](https://help.github.com/desktop/guides/getting-started/). I might also add some contents about setting up Git on Windows in this post when I have time.
+If you don't know much about Git, have a look at [Getting Started with GitHub Desktop](https://help.github.com/desktop/guides/getting-started/). To install Git, simply click [here](https://git-scm.com/download/win) and the download will start automatically. Then just open the file follow the instructions.
 
 ## Installation
 
 
 **1. Install Chocolatey**{:.em-uln}
 
-Open the command prompt and run:
+Open an **administrative** command prompt (right click on cmd.exe and choose 'Run As Administrator') and run:
 
 ```
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
@@ -36,7 +36,7 @@ choco install ruby -version 2.2.4 -y
 
 **3. Install Ruby DevKit**{:.em-uln}
 
-Reopen another command prompt and run (NOTE that it will fail due to the ruby path cannot be found but this command will automatically download Ruby DevKit in C:\tools\DevKit2 for you):
+Run the following command (NOTE that it will fail due to the ruby path cannot be found but this command will automatically download Ruby DevKit in C:\tools\DevKit2 for you):
 
 ```
 choco install ruby2.devkit -y
@@ -48,7 +48,7 @@ Append the root directory of  Ruby to the config file:
 echo. >> C:\tools\DevKit2\config.yml && echo - C:\tools\ruby22 >> C:\tools\DevKit2\config.yml
 ```
 
-Navigate the C:\tools\DevKit2 and install Ruby DevKit:
+Reopen another command prompt, navigate to C:\tools\DevKit2 and install Ruby DevKit:
 
 ```
 cd C:\tools\DevKit2

@@ -1,5 +1,5 @@
 default:                                                      # Fallback if nothing is specified
-  initial:      HongyuanH                                     # used for author lookup in posts
+  initial:      hongyuan                                      # used for author lookup in posts
   name:         "Hongyuan Huang"                              # used to display author name
   cover:        /assets/mountain-alternative-cover.jpg        # OPTIONAL: defines location of cover image in about page
   picture:      /assets/WeiSuoMe.jpg                          # OPTIONAL: author picture
@@ -21,7 +21,7 @@ default:                                                      # Fallback if noth
   behance:                                                    # OPTIONAL: used in the about page
 
 hongyuan:
-  initial:      HongyuanH
+  initial:      hongyuan
   name:         "Hongyuan Huang"        
   cover:        /assets/mountain-alternative-cover.jpg  
   picture:      /assets/WeiSuoMe.png
