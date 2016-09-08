@@ -50,13 +50,13 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 /* Code blocks */
 pre[class*="language-"] {
 	padding: 1em;
-	margin: .5em 0;
+	margin: 0 0;
 	overflow: auto;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: #f5f2f0;
+	background: #f0f3f5; /*#f5f2f0*/
 }
 
 /* Inline code */
@@ -147,7 +147,7 @@ pre[data-line] {
 	left: 0;
 	right: 0;
 	padding: inherit 0;
-	margin-top: 1em; /* Same as .prism’s padding-top */
+	margin-top: 1em; /* Same as .prism.css padding-top */
 
 	background: hsla(24, 20%, 50%,.08);
 	background: -moz-linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
