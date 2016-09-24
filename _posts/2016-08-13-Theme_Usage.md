@@ -19,22 +19,22 @@ This is just a summary of the posts from the original [jekyllDecent template](ht
 <div class="album">
 
 <figure>
-<img src="{{ site.github.url }}/media/img/2016-06-08-Readme-front-page-previewe.jpg" />
+<img src="{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/2016-06-08-Readme-front-page-previewe.jpg" />
 <figcaption>Frontpage</figcaption>
 </figure>
 
 <figure>
-<img src="{{ site.github.url }}/media/img/2016-06-08-Readme-post-preview.jpg" />
+<img src="{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/2016-06-08-Readme-post-preview.jpg" />
 <figcaption>Post</figcaption>
 </figure>
 
 <figure>
-<img src="{{ site.github.url }}/media/img/2016-06-08-Readme-content-preview.jpg" />
+<img src="{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/2016-06-08-Readme-content-preview.jpg" />
 <figcaption>Demo</figcaption>
 </figure>
 
 <figure>
-<img src="{{ site.github.url }}/media/img/2016-06-08-Readme-about-preview.jpg" />
+<img src="{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/2016-06-08-Readme-about-preview.jpg" />
 <figcaption>About Page</figcaption>
 </figure>
 
@@ -163,31 +163,31 @@ The features described in this section are specific for this template. All other
 Keep in mind that parallax effect will not be captured if you like to print the page.
 
 ```html
-<div class="bg-scroll" style="background-image: url('{{ site.github.url }}/media/img/mountain1.jpg')"></div>
+<div class="bg-scroll" style="background-image: url('{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain1.jpg')"></div>
 ```
 
-<div class="bg-scroll" style="background-image: url('{{ site.github.url }}/media/img/mountain1.jpg')"></div>
+<div class="bg-scroll" style="background-image: url('{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain1.jpg')"></div>
 
 
 #### Caption for Image
 
 ```html
 <figure>
-   <img src="{{ site.github.url }}/media/img/mountain2.jpg" />
+   <img src="{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain2.jpg" />
    <figcaption>A nice mountain.</figcaption>
 </figure>
 ```
 
 <figure>
-<img src="{{ site.github.url }}/media/img/mountain2.jpg" />
+<img src="{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain2.jpg" />
 <figcaption>A nice mountain</figcaption>
 </figure>
 
 #### Image Allignment
 
 ```html
-![]({{ site.github.url }}/media/img/mountain3.gif#right)
-![]({{ site.github.url }}/media/img/mountain2.gif#left)
+![]({{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain3.gif#right)
+![]({{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain2.gif#left)
 ```
 
 Allignment with caption
@@ -195,19 +195,19 @@ Allignment with caption
 ```html
 <aside>
    <figure class="left">
-      <img src="{{ site.github.url }}/media/img/mountain3.jpg#left" />
+      <img src="{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain3.jpg#left" />
       <figcaption>What a view!</figcaption>
    </figure>
 </aside>
 ```
 
-![]({{ site.github.url }}/media/img/mountain2.jpg#right)
+![]({{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain2.jpg#right)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent accumsan ante nulla, quis pulvinar nibh tempus sed. In congue congue odio, vel ornare mauris ultrices vel. Vestibulum tristique eros at enim vulputate fringilla. Nullam non augue sit amet elit interdum tempus non ut justo. 
 
 <aside>
 <figure class="left">
-<img src="{{ site.github.url }}/media/img/mountain3.jpg" />
+<img src="{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain3.jpg" />
 <figcaption>What a view!</figcaption>
 </figure>
 </aside>
@@ -219,7 +219,7 @@ Phasellus ut ipsum id leo sagittis pretium a quis neque. Maecenas rutrum lectus 
 
 ```html
 <div class="large">
-   ![]({{ site.github.url }}/media/img/mountain2.jpg)
+   ![]({{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain2.jpg)
 </div>
 ```
 
@@ -227,13 +227,13 @@ With caption
 
 ```html
 <figure class="large" markdown="1">   
-   ![]({{ site.github.url }}/media/img/mountain2.jpg)
+   ![]({{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain2.jpg)
    <figcaption>On top of the mountain!</figcaption>
 </figure>
 ```
 
 <figure class="large" markdown="1">
-   ![]({{ site.github.url }}/media/img/mountain2.jpg)
+   ![]({{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain2.jpg)
    <figcaption>On top of the mountain!</figcaption>
 </figure>
 
@@ -241,12 +241,12 @@ With caption
 
 ```html
 <div class="album">
-   ![]({{ site.github.url }}/media/img/Screenshot_2016-04-09-19-16-28.png)
-   ![]({{ site.github.url }}/media/img/Screenshot_2016-04-02-00-48-25.png)
-   ![]({{ site.github.url }}/media/img/Screenshot_2016-04-01-12-03-36.png)
-   ![]({{ site.github.url }}/media/img/Screenshot_2016-04-01-12-01-33.png)
-   ![]({{ site.github.url }}/media/img/Screenshot_2016-03-24-12-13-58.png)
-   ![]({{ site.github.url }}/media/img/Screenshot_2016-03-17-22-50-05.png)
+   ![]({{ site.github.url }}/media/img/2016-08-13-Theme_Usage/Screenshot_2016-04-09-19-16-28.png)
+   ![]({{ site.github.url }}/media/img/2016-08-13-Theme_Usage/Screenshot_2016-04-02-00-48-25.png)
+   ![]({{ site.github.url }}/media/img/2016-08-13-Theme_Usage/Screenshot_2016-04-01-12-03-36.png)
+   ![]({{ site.github.url }}/media/img/2016-08-13-Theme_Usage/Screenshot_2016-04-01-12-01-33.png)
+   ![]({{ site.github.url }}/media/img/2016-08-13-Theme_Usage/Screenshot_2016-03-24-12-13-58.png)
+   ![]({{ site.github.url }}/media/img/2016-08-13-Theme_Usage/Screenshot_2016-03-17-22-50-05.png)
 </div>
 ```
 
@@ -256,11 +256,11 @@ With caption
 <div class="album">
    // ...
    <figure>
-      <img src="{{ site.github.url }}/media/img/mountain2.jpg" />
+      <img src="{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain2.jpg" />
       <figcaption>On top of the mountain!</figcaption>
    </figure>
    <figure>
-      <img src="{{ site.github.url }}/media/img/mountain3.jpg" />
+      <img src="{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain3.jpg" />
       <figcaption>What a view</figcaption>
    </figure>
 </div>
@@ -268,15 +268,15 @@ With caption
 
 <div class="album">
    <figure>
-      <img src="{{ site.github.url }}/media/img/mountain1.jpg" />
+      <img src="{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain1.jpg" />
       <figcaption>Mountain and lake</figcaption>
    </figure>   
    <figure>
-      <img src="{{ site.github.url }}/media/img/mountain2.jpg" />
+      <img src="{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain2.jpg" />
       <figcaption>On top of the mountain!</figcaption>
    </figure>   
    <figure>
-      <img src="{{ site.github.url }}/media/img/mountain3.jpg" />
+      <img src="{{ site.github.url }}/media/img/2016-08-13-Theme_Usage/mountain3.jpg" />
       <figcaption>What a view</figcaption>
    </figure>
 </div>
