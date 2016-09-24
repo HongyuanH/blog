@@ -3,7 +3,7 @@ layout:            post
 title:             "Intel VTune Amplifier & Performance Counter Monitor"
 date:              2016-08-19
 tags:              HPC Profiling
-category:          High Perfomance Computing
+category:          High Performance Computing
 author:            hongyuan
 
 ---
