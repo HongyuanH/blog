@@ -3,7 +3,7 @@ layout:            post
 title:             "Wrapping C/C++ for Python: Part 1"
 date:              2016-09-08
 tags:              Python C C++
-category:          Others
+category:          Python
 author:            hongyuan
 
 ---
