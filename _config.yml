@@ -17,7 +17,10 @@ url:          "http://HongyuanH.github.io/blog" # the base hostname & protocol f
 permalink:    /blog/:categories/:title
 cover:        /assets/mountain-cover.jpg
 
+max_recent_posts: 5
+
 # Build settings
+incremental: false
 markdown: kramdown
 kramdown:
   syntax_highlighter_opts:

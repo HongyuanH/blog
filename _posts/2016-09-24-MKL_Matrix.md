@@ -25,7 +25,7 @@ const MKL_INT lda				//leading dimension of a
 Dead simple but easy to forget: `m` -- number of rows; `n` -- number of columns.
  
 <figure>
-<img src="{{ site.github.url }}/media/img/2016-09-24-MKL_Matrix/Matrix-Dimension.png" />
+<img src="{{ site.github.url }}/res/2016-09-24-MKL_Matrix/Matrix-Dimension.png" />
 </figure>
 
 
@@ -34,37 +34,37 @@ Dead simple but easy to forget: `m` -- number of rows; `n` -- number of columns.
 The data are stored as a 1-dimension array in the memory (length l):
 
 <figure>
-<img src="{{ site.github.url }}/media/img/2016-09-24-MKL_Matrix/Array.png" />
+<img src="{{ site.github.url }}/res/2016-09-24-MKL_Matrix/Array.png" />
 </figure>
 
 The parameter `lda` determines the offset of the first element in each row/column:
 
 <figure>
-<img src="{{ site.github.url }}/media/img/2016-09-24-MKL_Matrix/lda1.png" />
+<img src="{{ site.github.url }}/res/2016-09-24-MKL_Matrix/lda1.png" />
 </figure>
 
 `layout` determines whether the data are continuous in each row or column:
   
 <figure>
-<img src="{{ site.github.url }}/media/img/2016-09-24-MKL_Matrix/Row-Col-Major-Arrow.png" />
+<img src="{{ site.github.url }}/res/2016-09-24-MKL_Matrix/Row-Col-Major-Arrow.png" />
 </figure>
 
 If normal `lda` is used, i.e.:
 
 <figure>
-<img src="{{ site.github.url }}/media/img/2016-09-24-MKL_Matrix/lda2.png" />
+<img src="{{ site.github.url }}/res/2016-09-24-MKL_Matrix/lda2.png" />
 </figure>
 
 We have the following matrix layout:
 
 <figure>
-<img src="{{ site.github.url }}/media/img/2016-09-24-MKL_Matrix/Row-Col-Major.png" />
+<img src="{{ site.github.url }}/res/2016-09-24-MKL_Matrix/Row-Col-Major.png" />
 </figure>
 
 General case:
 
 <figure>
-<img src="{{ site.github.url }}/media/img/2016-09-24-MKL_Matrix/Row-Col-Major-Gen.png" />
+<img src="{{ site.github.url }}/res/2016-09-24-MKL_Matrix/Row-Col-Major-Gen.png" />
 </figure>
 
 ## Transpose

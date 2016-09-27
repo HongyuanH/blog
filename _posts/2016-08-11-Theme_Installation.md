@@ -3,7 +3,7 @@ layout:            post
 title:             "JekyllDecent Installation"
 date:              2016-08-11
 tags:              Jekyll Theme GitHub
-category:          Jekyll
+category:          Others
 author:            hongyuan
 
 ---
