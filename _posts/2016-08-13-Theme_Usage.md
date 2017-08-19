@@ -2,7 +2,7 @@
 layout:            post
 title:             "JekyllDecent Usage/Features"
 menutitle:         "JekyllDecent Usage"
-date:              2017-08-19
+date:              2016-08-13
 tags:              Jekyll Theme JekyllDecent
 category:          Others
 author:            hongyuan
@@ -398,10 +398,7 @@ The theme is released under **[The MIT License (MIT)](https://github.com/jwillme
 	
 ## Links
 
-[1] Theme Installation and Usage ([https://jwillmer.github.io/jekyllDecent/blog/readme/Readme](https://jwillmer.github.io/jekyllDecent/blog/readme/Readme))
-  
-[2] Theme Features ([https://jwillmer.github.io/jekyllDecent/blog/features/Features](https://jwillmer.github.io/jekyllDecent/blog/features/Features))
-
-[3] YAML Features ([https://jwillmer.github.io/jekyllDecent/blog/features/YAML-Features](https://jwillmer.github.io/jekyllDecent/blog/features/YAML-Features))
-
+[1] Theme Installation and Usage ([https://jwillmer.github.io/jekyllDecent/blog/readme/Readme](https://jwillmer.github.io/jekyllDecent/blog/readme/Readme))  
+[2] Theme Features ([https://jwillmer.github.io/jekyllDecent/blog/features/Features](https://jwillmer.github.io/jekyllDecent/blog/features/Features))  
+[3] YAML Features ([https://jwillmer.github.io/jekyllDecent/blog/features/YAML-Features](https://jwillmer.github.io/jekyllDecent/blog/features/YAML-Features))  
 [4] Content styles ([https://jwillmer.github.io/jekyllDecent/blog/features/Content](https://jwillmer.github.io/jekyllDecent/blog/features/Content))

@@ -7,7 +7,7 @@
 
 # Site settings
 title:        Hongyuan Huang
-subtitle:     TO_BE_ADDED
+subtitle:     Code From Home,
 description:  Hongyuan Huang's personal blog.
 keywords:     example github jekyll features
 language:     "en" # default language of the blog. Language codes: http://www.w3schools.com/tags/ref_language_codes.asp
@@ -15,7 +15,7 @@ language:     "en" # default language of the blog. Language codes: http://www.w3
 baseurl:      "" # the subpath of your site, e.g. /blog
 url:          "http://HongyuanH.github.io/blog" # the base hostname & protocol for your site. Have a look at robots.txt as well!
 permalink:    /blog/:categories/:title
-cover:        /assets/mountain-cover.jpg
+cover:        /assets/cover.jpg
 
 max_recent_posts: 5
 

@@ -5,7 +5,8 @@
     top: 10px;
     width: 108px;
     height: 48px;
-    background-color: #000;
+    background-color: #FFFFFF;
+	opacity: 0.75;
     overflow: hidden;
     z-index: 99;
 
@@ -20,7 +21,8 @@
         font-size: 30px;
         font-weight: 600;
         text-decoration: none;
-        color: #fff;
+        color: #000000;
         text-align: center;
+		z-index: 100;
     }
 }

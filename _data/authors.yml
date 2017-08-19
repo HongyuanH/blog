@@ -1,9 +1,9 @@
 default:                                                      # Fallback if nothing is specified
   initial:      hongyuan                                      # used for author lookup in posts
   name:         "Hongyuan Huang"                              # used to display author name
-  cover:        /assets/mountain-alternative-cover.jpg        # OPTIONAL: defines location of cover image in about page
+  cover:        /assets/alternative-cover.jpg        # OPTIONAL: defines location of cover image in about page
   picture:      /assets/Me.jpg                                # OPTIONAL: author picture
-  bio:          TO_BE_ADDED                                   # OPTIONAL: text below author name in posts
+  bio:          Code From Home,                               # OPTIONAL: text below author name in posts
   location:     UK                                            # OPTIONAL: used to display location of the author
   website:      "http://hongyuanh.github.io/blog/about"       # OPTIONAL: link to the author of a post
   email:                                                      # OPTIONAL: used in the about page
@@ -23,9 +23,9 @@ default:                                                      # Fallback if noth
 hongyuan:
   initial:      hongyuan
   name:         "Hongyuan Huang"        
-  cover:        /assets/mountain-alternative-cover.jpg  
+  cover:        /assets/alternative-cover.jpg  
   picture:      /assets/Me.jpg
-  bio:          TO_BE_ADDED
+  bio:          Code From Home,
   location:     UK
   website:      "http://hongyuanh.github.io/blog/about" 
   twitter:      
