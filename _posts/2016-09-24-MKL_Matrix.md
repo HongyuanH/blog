@@ -3,13 +3,13 @@ layout:            post
 title:             "Understanding Input Parameters to MKL Matrix"
 menutitle:         "MKL Matrix"
 date:              2016-09-24
-tags:              MKL HPC
-category:          High Performance Computing
+tags:              Performance MKL
+category:          Programming for Performance
 author:            hongyuan
 
 ---
 
-When using MKL for matrix-related calculation, one may easily get confused because there are too many input parameters to tell MKL how to construct a matrix:
+When using MKL for matrix-related calculation, one may easily get confused because there are way too many input parameters to construct a matrix:
 
 ```cpp
 const <TYPE> *a					//pointer to array a

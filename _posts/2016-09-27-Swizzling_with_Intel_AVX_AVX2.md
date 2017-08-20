@@ -2,8 +2,8 @@
 layout:            post
 title:             "Swizzling with Intel AVX/AVX2"
 date:              2016-09-27
-tags:              AVX HPC Intrinsic
-category:          High Performance Computing
+tags:              Performance SIMD Intrinsic AVX
+category:          Programming for Performance
 author:            hongyuan
 
 ---

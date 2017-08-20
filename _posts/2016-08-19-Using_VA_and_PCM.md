@@ -2,8 +2,8 @@
 layout:            post
 title:             "Intel VTune Amplifier & Performance Counter Monitor"
 date:              2016-08-19
-tags:              HPC Profiling
-category:          High Performance Computing
+tags:              Profiling Performance
+category:          Programming for Performance
 author:            hongyuan
 
 ---
@@ -65,12 +65,12 @@ sudo modprobe msr                                   # enable msr module
 sudo ./pcm.x
 ```
 
- * Or just the memory metrics:
+ * or the memory metrics:
 
 ```bash
 sudo ./pcm-memory.x
 ```
 
- * If you want to use the GUI, install **KSysGuard** first and then follow the instructions in the file **KSysGuard HOWTO.pdf**, which can be found in the root directory of PCM.
- * To monitor the counters inside your program, take a look at the .cpp (e.g. pcm.cpp, pcm-memory.cpp, etc.) files in the root direcotry of PCM.
+ * To use the GUI, install **KSysGuard** first and then follow the instructions in the file **KSysGuard HOWTO.pdf**, which can be found in the root directory of PCM.
+ * To monitor the counters inside your program, take a look at the examples(pcm.cpp, pcm-memory.cpp, etc.) in the root direcotry of PCM.
 

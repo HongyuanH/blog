@@ -2,8 +2,8 @@
 layout:            post
 title:             "Intel Intrinsic Terminology: Latency vs. Throughput"
 date:              2016-09-26
-tags:              HPC Intrinsic
-category:          High Performance Computing
+tags:              Performance SIMD Intrinsic
+category:          Programming for Performance
 author:            hongyuan
 
 ---

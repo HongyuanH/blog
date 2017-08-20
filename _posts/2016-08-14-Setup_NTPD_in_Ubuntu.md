@@ -41,7 +41,7 @@ sudo apt-get install util-linux    # obtain ldattach
 ```
 
 ## Connect GPS to your PC
-If your GPS device already has a **RS232 DE9** interface then all you have to do is to connect it to one of your PC's serial port. If unfortunately not, you may have to wire them manually. Take a look at [this post](http://www.rjsystems.nl/en/2100-ntpd-garmin-gps-18-lvc-gpsd.php) about how to wire different pins.
+If your GPS device already has a **RS232 DE9** interface then all you have to do is to connect it to one of your PC's serial port. If, unfortunately there's no **RS232 DE9** interface, you may have to wire them manually. Take a look at [this post](http://www.rjsystems.nl/en/2100-ntpd-garmin-gps-18-lvc-gpsd.php) about how to wire different pins.
 
 Also make sure that your GPS antenna can receive signal from satellites properly.
 
