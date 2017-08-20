@@ -95,13 +95,13 @@ You should see the output:
 
 **3. About varargs_io_wrapper.cpp**{:.em-uln}
 
-Everything in Python is an object, including the input arguments to a **PyCFunction** wrapper function. By default this is passed in as a Python tuple as the second input to the wrapper function(i.e. the **args** pointer). As there can be multiple elements in the tuple, function **PyArg_ParseTuple()** should be used to copy elements into different variables one by one, for example:
+The input arguments to a **PyCFunction** wrapper function is passed in as a tuple, as the second input(i.e. the **args** pointer). Function **PyArg_ParseTuple()** should be used to copy elements into different variables one by one, for example:
 
 ```cpp
 PyArg_ParseTuple(args, "if", &int_input, &float_input)
 ```
 
-takes the tuple pointer as the first argument and uses a format string as the second one, followed by some variable addresses in C/C++. In the format string, the first character `'i'` tells the function the first element of the input tuple is an integer, and `'f'` means the second element is a float. These two values are then copied into the the given address `&int_input` and `&float_input`.
+takes the tuple pointer as the first argument and the format string as the second, followed by the variadic arguments (very similar to `printf()`). The first character `'i'` in the format string tells the function the first element of the input tuple is an integer, and `'f'` means the second element of the tuple is a float. These two values are then copied into the the given address `&int_input` and `&float_input`.
 
 Then we can do whatever we like with the inputs:
 
@@ -110,7 +110,7 @@ Then we can do whatever we like with the inputs:
 	cout << "[   C++]Got float_input: " << float_input << endl;
 ```
 
-Next, we build and return a new tuple back to Python using another function, **Py_BuildValue()**, using a format string as well:
+Next, build and return a new tuple back to Python using another function, **Py_BuildValue()**, using a format string as well (<span style="color:red;">write down the variables themselves instead of their addresses as the input</span>):
 
 ```cpp
 	int int_output = int_input + 1;
