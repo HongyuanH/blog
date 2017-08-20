@@ -72,13 +72,13 @@ The procedure for Python to `import minial_module` is:
 
 **_MODULE\_NAME_** ('minimal_module'), occurs 3 times in our example:
 
- * In the name of the function decorated by **PyMODINIT_FUNC**
- * In the call of **Py_InitModule3()**
- * In the call of **Extension()** in setup.py
+ * In the name of the function decorated by **PyMODINIT_FUNC** (line 3 of minimal_wrapper.cpp)
+ * In the call of **Py_InitModule3()** (line 5 of minimal_wrapper.cpp)
+ * In the call of **Extension()** (line 2 of setup.py)
 
-So if you are wrting your own C extension, <span style="color:red">you need to make sure that the module name in these three places are consistent</span>, e.g. for an extension module called '**example_module**', you would write something like:
+If you are wrting your own C extension, <span style="color:red">make sure the module name in these three places are consistent (case sensitive)</span>, e.g. for an extension module called '**example_module**', you would write something like:
 
-<div class="div-nm">wrapper.cpp:</div>
+<div class="div-nm">example_wrapper.cpp:</div>
 ```cpp{:.line-numbers}
 #include <Python.h>
 
@@ -97,6 +97,15 @@ setup(ext_modules=[extension_mod])
 ```
 
 `python setup.py build_ext --inplace` will generate **example_module.so** for you.
+
+If you see:
+> ImportError: dynamic module does not define init function (initminimal_module)
+
+or:
+
+> SystemError: dynamic module not initialized properly
+
+check the module name consistency in these three places.
 
 **4. About setup.py**{:.em-uln}
 
