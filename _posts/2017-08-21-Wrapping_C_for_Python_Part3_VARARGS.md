@@ -125,5 +125,9 @@ Finally, we need to tell Python interpreter that our wrapper function, **varargs
 { "varargs_io", (PyCFunction)varargs_io_wrapper,  METH_VARARGS, NULL},
 ```
 
+**4. Optional argument**{:.em-uln}
+
+Haven't got time to write this part yet :)
+
 ## Links
 Parsing arguments and building values ([https://docs.python.org/2/c-api/arg.html](https://docs.python.org/2/c-api/arg.html))

@@ -88,7 +88,8 @@ hello_world_module.hello_world()
 We need to do 3 things in this file:
 
 * Wrap existing functions  
-  Everything in Python is an object, so we define a function that takes and returns pointer of **PyObject**. Because the wrapper function itself is also an object, so we need to have an extra 'self' pointer as the first argument. Inside the wrapper function, **hello_world()** is called and then the macro **Py_RETURN_NONE** is used to return a None pointer to Python.
+  Everything in Python is an object, so we define a function that takes and returns pointer of **PyObject**. Because the wrapper function itself is also an object, so we need to have an extra 'self' pointer as the first argument. Inside the wrapper function, **hello_world()** is called and then the macro `Py_RETURN_NONE` is used to return a None pointer to Python. Returning NULL to the python/c API indicates that an error has occurred and you may see the below error since an exception hasn't been set:
+> SystemError: error return without exception set
 
 * Write a Method Mapping Table  
   A Method Mapping Table can be created with an array of **PyMethodDef**. According to the [official doc](https://docs.python.org/2/c-api/structures.html#c.PyMethodDef), **PyMethodDef** consists of four fields:
