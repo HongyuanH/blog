@@ -93,7 +93,8 @@ You should see the output:
 
 **3. About keywords_io_wrapper.cpp**{:.em-uln}
 
-This example is very similar to the previous one (Wrapping C/C++ for Python: Part 3--VARARGS IO). The differences are illustrated below:
+This example is very similar to the previous one ([Wrapping C/C++ for Python: Part 3--VARARGS IO](https://hongyuanh.github.io/blog/blog/python/Wrapping_C_for_Python_Part3_VARARGS)).
+The differences are illustrated below:
 
 First, the third argument `PyObject *kargs` is added to the wrapper function so that the keyword dict can be accessed inside. In our example this keyword dict is `{"int_input": int_input, "float_intput": float_intput}`.
 
