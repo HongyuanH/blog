@@ -108,11 +108,17 @@
         }
     }
 
-    img[src*='#right'], img[src*='#left'] {
+    img[src*='#right'], img[src*='#left'], img[src*='#middle'] {
         width: auto;
         height: auto;
     }
 
+	img[src*='#middle'] {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
     img[src*='#right'] {
         float: right;
         margin: 0 0 10px 10px;
