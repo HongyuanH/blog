@@ -28,7 +28,7 @@ env = env.Clone()
 env.Program("HelloWorld.cpp")
 ```
 
-Easy to understand right? But what happens when we run `socns` is that the built targets (i.e. **HelloWorld.so** and **HelloWorld**) are generated in src as well:
+Easy to understand right? But what happens when we run `socns` is that the built targets (i.e. **HelloWorld.o** and **HelloWorld**) are generated in src as well:
 
 ![VariantDir_v1.0_B.png]({{ site.github.url }}/res/2017-09-SCons_Tutorial/VariantDir_v1.0_B.png#left)
 <div style="clear:left"></div>
