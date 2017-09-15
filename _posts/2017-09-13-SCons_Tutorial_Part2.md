@@ -52,12 +52,27 @@ New things in the `Sconstruct` file:
 
 1. Construction Environments [1]  
 It is rare that all of the software in a large, complicated system needs to be built the same way. For example, different executable programs need to be linked with different libraries. SCons accommodates these different build requirements by allowing you to create and configure multiple **construction environments** that control how the software is built. A **construction environment** is an object that has a number of associated construction variables, each with a name and a value. Use the method `Environment()` to create a default build configuration. Check [the user guide](http://scons.org/doc/production/HTML/scons-user/ch07.html) for more details about **construction environment**.  
+
 2. CPPPATH  
-The `env` object is very much like a [Python Dictionary](https://www.tutorialspoint.com/python/python_dictionary.htm) which allows inserting/accessing elements via `[]`. Now that an environment has been created, assigning `["#/include"]` to `env["CPPPATH"]` will allow SCons to search for header files in the **include** folder (hash means root directory).   
+The `env` object is very much like a [Python Dictionary](https://www.tutorialspoint.com/python/python_dictionary.htm) which allows inserting/accessing elements via `[]`. Now that an environment has been created, assigning `["#/include"]` to `env["CPPPATH"]` will allow SCons to search for header files in the **include** folder (hash means root directory). Some common keywords to use with the environment are listed below:  
+
+    | Keyword | Function |
+    |--------|--------|
+    | CC | compiler to use |
+    | CPPPATH | header search path |
+    | CCFLAGS | compile-time flags |
+    | CPPDEFINES | preprocessor |
+    | LIBPATH | library search path |
+    | LIBS | libraries to link against |
+    | LINKFLAGS | link time flags |
+
+    It is also possible to create your own keywords and pass it around with the environment object.  
+
 3. env.Program()  
 Instead of calling `Program()` directly, this time we use the environment object `env.Program()` to invoke the method, only in this way will `env["CPPPATH"]` take effect.  
+
 4. Multiple source files as a [Python List](https://www.tutorialspoint.com/python/python_lists.htm)  
-Multiple source files are passed to `env.Program()` in one go as a Python List. Same rule applies for assigning value to `env["CPPPATH"]`.
+Multiple source files are passed to `env.Program()` in one go as a Python List. Same rule applies for assigning value to `env["CPPPATH"]` thus the brackets outside `"#/include"`.
 
 Compile and run:
 
@@ -80,5 +95,5 @@ Hello World!
 ```
 
 ## References
-[1] Construction Environments ([http://www.scons.org/doc/0.97/HTML/scons-user/c1051.html](http://www.scons.org/doc/0.97/HTML/scons-user/c1051.html))
+[1] Construction Environments ([http://www.scons.org/doc/0.97/HTML/scons-user/c1051.html](http://www.scons.org/doc/0.97/HTML/scons-user/c1051.html))  
 [2] SCons User Guide, Chapter 7. Environments ([http://scons.org/doc/production/HTML/scons-user/ch07.html](http://scons.org/doc/production/HTML/scons-user/ch07.html))
