@@ -38,7 +38,7 @@ sudo apt-get install scons
 Say we have a single CPP file:
 
 <div class="div-nm">HelloWorld.cpp:</div>
-```cpp{:.line-numbers}
+```cpp
 #include <iostream>
 
 int main(){
@@ -50,7 +50,7 @@ int main(){
 Write a `Sconstruct` file in the same directory:
 
 <div class="div-nm">Sconstruct:</div>
-```python{:.line-numbers}
+```python
 Program("HelloWorld.cpp")
 ```
 
@@ -80,14 +80,14 @@ This is done by invoking the `Program()` method with the file name as parameter.
 By default, if only one source file is given, the program will have the same name as the source file. To generate a program with a different name, add another parameter at the beginning of call to `Program()`:
 
 <div class="div-nm">Sconstruct:</div>
-```python{:.line-numbers}
+```python
 Program("MyHelloWorld", "HelloWorld.cpp")
 ```
 
 Or with keyword parameters:
 
 <div class="div-nm">Sconstruct:</div>
-```python{:.line-numbers}
+```python
 Program(target="MyHelloWorld", source="HelloWorld.cpp")
 ```
 

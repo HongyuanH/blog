@@ -1,6 +1,6 @@
 ---
 layout:            post
-title:             "SCons Tutorial Part 2 -- MiniProject"
+title:             "SCons Tutorial Part 2 -- Environment"
 date:              2017-09-13
 tags:              SCons
 category:          SCons
@@ -8,20 +8,82 @@ author:            hongyuan
 
 ---
 
-## Mini Project
+## Construction Environments[1,2]
 
-Say we have a mini project with the below layout:
+It is rare that all of the software in a large, complicated system needs to be built the same way. For example, different executable programs need to be linked with different libraries. SCons accommodates these different build requirements by allowing you to create and configure multiple **construction environments** that control how the software is built.
 
-![MiniProject_Layout.png]({{ site.github.url }}/res/2017-09-SCons_Tutorial/MiniProject_Layout.png#left)
-<div style="clear:left"></div>
+In our last example, we did not create any environment but built a program with a direct method of `Program()`:
+
+```python
+Program(target="MyHelloWorld", source="HelloWorld.cpp")
+```
+
+A more appropriate way of doing it is to first create a bulid environment with the method `Environment()` and then build the program under the environment:
+
+```python
+env = Environment()
+env.Program(target="MyHelloWorld", source="HelloWorld.cpp")
+```
+
+Without giving any argument to `Environment()`, SCons creates a default environment. By default, SCons initializes every new construction environment with a set of construction variables based on the tools that it finds on your system, plus the default set of builder methods necessary for using those tools. The construction variables are initialized with values describing the C compiler, the Fortran compiler, the linker, etc., as well as the command lines to invoke them.
+
+When you initialize a construction environment you can set the values of the environment's construction variables to control how a program is built. For example:
+
+```python
+env = Environment(CC="gcc", CCFLAGS=["-O0", "-g"])
+```
+
+The `env` object is very much like a [Python Dictionary](https://www.tutorialspoint.com/python/python_dictionary.htm) which allows inserting/deleting/accessing elements via the operator`[]` to update its construction variables:
+
+```python
+env = Environment()
+env["CC"] = "gcc"
+env["CCFLAGS"] = ["-O0"]
+env["CCFLAGS"] += ["-g"]
+```
+
+Some common keywords to use with the environment are listed below:  
+
+| Keyword | Function |
+|--------|--------|
+| CC | compiler to use |
+| CPPPATH | header search path |
+| CCFLAGS | compile-time flags |
+| CPPDEFINES | preprocessor |
+| LIBPATH | library search path |
+| LIBS | libraries to link against |
+| LINKFLAGS | link time flags |
+
+It is also possible to create your own variable and pass it around with the environment object:
+
+```python
+env = Environment()
+env["name"] = "MyHelloWorld"
+env.Program(target=env["name"], source="HelloWorld.cpp")
+```
+
+You can check [the user guide](http://scons.org/doc/production/HTML/scons-user/ch07s02.html) for more details about **construction environment**.  
+
+## Example
+
+<div class="div-nm">Project Layout:</div>
+```
+Environment
+|--include
+|  |--HelloWorld.hpp
+|--src
+|  |--HelloWorld.cpp
+|  |--main.cpp
+|--Sconstruct
+```
 
 <div class="div-nm">HelloWorld.hpp:</div>
-```cpp{:.line-numbers}
+```cpp
 void HelloWorld();
 ```
 
 <div class="div-nm">HelloWorld.cpp:</div>
-```cpp{:.line-numbers}
+```cpp
 #include <iostream>
 
 void HelloWorld(){
@@ -30,7 +92,7 @@ void HelloWorld(){
 ```
 
 <div class="div-nm">main.cpp:</div>
-```cpp{:.line-numbers}
+```cpp
 #include "HelloWorld.hpp"
 
 int main(){
@@ -39,45 +101,23 @@ int main(){
 }
 ```
 
-Write a `Sconstruct` file in the root directory:
-
 <div class="div-nm">Sconstruct:</div>
-```python{:.line-numbers}
+```python
 env = Environment()
 env["CPPPATH"] = ["#/include"]
-env.Program("MiniProject", ["src/HelloWorld.cpp","src/main.cpp"])
+env.Program("main", ["src/HelloWorld.cpp","src/main.cpp"])
 ```
 
 New things in the `Sconstruct` file:
 
-1. Construction Environments [1]  
-It is rare that all of the software in a large, complicated system needs to be built the same way. For example, different executable programs need to be linked with different libraries. SCons accommodates these different build requirements by allowing you to create and configure multiple **construction environments** that control how the software is built. A **construction environment** is an object that has a number of associated construction variables, each with a name and a value. Use the method `Environment()` to create a default build configuration. Check [the user guide](http://scons.org/doc/production/HTML/scons-user/ch07.html) for more details about **construction environment**.  
-
-2. CPPPATH  
-The `env` object is very much like a [Python Dictionary](https://www.tutorialspoint.com/python/python_dictionary.htm) which allows inserting/accessing elements via `[]`. Now that an environment has been created, assigning `["#/include"]` to `env["CPPPATH"]` will allow SCons to search for header files in the **include** folder (hash means root directory). Some common keywords to use with the environment are listed below:  
-
-    | Keyword | Function |
-    |--------|--------|
-    | CC | compiler to use |
-    | CPPPATH | header search path |
-    | CCFLAGS | compile-time flags |
-    | CPPDEFINES | preprocessor |
-    | LIBPATH | library search path |
-    | LIBS | libraries to link against |
-    | LINKFLAGS | link time flags |
-
-    It is also possible to create your own keywords and pass it around with the environment object.  
-
-3. env.Program()  
-Instead of calling `Program()` directly, this time we use the environment object `env.Program()` to invoke the method, only in this way will `env["CPPPATH"]` take effect.  
-
-4. Multiple source files as a [Python List](https://www.tutorialspoint.com/python/python_lists.htm)  
-Multiple source files are passed to `env.Program()` in one go as a Python List. Same rule applies for assigning value to `env["CPPPATH"]` thus the brackets outside `"#/include"`.
+1. A default envrionment is created with `Environment()`
+2. `["#/include"]` is assigned to `env["CPPPATH"]` which allows SCons to search for header files in the **include** folder (hash means root directory)
+3. `env.Program()` is used instead of `Program()`, only in this way will `env["CPPPATH"]` take effect
 
 Compile and run:
 
 ```bash
-$ cd MiniProject
+$ cd Environment
 $ ls
 include  Sconstruct  src
 $ scons
@@ -86,14 +126,14 @@ scons: done reading SConscript files.
 scons: Building targets ...
 g++ -o src/HelloWorld.o -c -Iinclude src/HelloWorld.cpp
 g++ -o src/main.o -c -Iinclude src/main.cpp
-g++ -o MiniProject src/HelloWorld.o src/main.o
+g++ -o main src/HelloWorld.o src/main.o
 scons: done building targets.
 $ ls
-include  MiniProject  Sconstruct  src
-$ ./MiniProject
+include  main  Sconstruct  src
+$ ./main
 Hello World!
 ```
 
 ## References
 [1] Construction Environments ([http://www.scons.org/doc/0.97/HTML/scons-user/c1051.html](http://www.scons.org/doc/0.97/HTML/scons-user/c1051.html))  
-[2] SCons User Guide, Chapter 7. Environments ([http://scons.org/doc/production/HTML/scons-user/ch07.html](http://scons.org/doc/production/HTML/scons-user/ch07.html))
+[2] SCons User Guide, 7.2. Construction Environments ([http://scons.org/doc/production/HTML/scons-user/ch07s02.html](http://scons.org/doc/production/HTML/scons-user/ch07s02.html))
