@@ -10,7 +10,7 @@ author:            hongyuan
 
 ## Glob & filter
 
-In SCons build script we can use the method `Glob()` to automaticlly search for files in a specific directory instead of typing every single file name. If we want to filter out something special from the result returning by `Glob()`, we use `filter()`.
+In SCons build script we can use the method `Glob()` to automaticlly search for files in a specific directory so that we don't need to type in every single file name ourself. If some files need to be filtered out from the result returning by `Glob()`, `filter()` can be used.
 
 ## Example
 
@@ -49,17 +49,20 @@ for root, dirs, files in os.walk(".", topdown=False):
             env.Object(cppFile)
 ```
 
-The task here is to recursively search for **.cpp** files and compile them into **.o** files expect for the file **filterMe.cpp**. There're three stages of for loops in the script:
+The task here is to recursively search for **.cpp** files under the root directory (".") and compile them into **.o** files expect the file **filterMe.cpp**. There're three stages of for loops in the script:
 
 1. Use the Python `os.walk()` to recursively walk through all the directories.
 2. For each directory, use `Glob()` to search for all the **.cpp** files using a wild card `"%s/*.cpp" % os.path.join(root, dir)`. The path needs to be given because Glob can only search for files under a specfic directory.
-3. For each file returned by `Glob()` except for **filterMe.cpp**, compile them into an object file.
+3. For each file returned by `Glob()` except **filterMe.cpp**, compile them into an object file using `env.Object()`.
 
-The usage of `Glob()` should be quite straghtforward. But not `filter()`:
+The usage of `Glob()` should be quite straghtforward. But not `filter()`. `filter()` takes two arguments:
 
-  `filter()` takes two arguments: the first one is a function that accepts an object of class `SCons.Node.FS.File` (check [this link](http://scons.org/doc/HTML/scons-api/SCons.Node.FS.File-class.html) for more details about this class) and return a boolean indicating whether a specific file should be filtered out; the second one is the `Glob` object to be filtered. Most commonly, inside the function passed to `filter()`, a rule can be applied by checking the `path` property (a string indicating the path of a file relative to the root directory) of the `SCons.Node.FS.File` object. In our example, if the file name is **filterMe.cpp**, `False` is returned, otherwise `True` is returned.
-  
-Try to compile:
+* the first one is a function that accepts an object of class `SCons.Node.FS.File` (check [this link](http://scons.org/doc/HTML/scons-api/SCons.Node.FS.File-class.html) for more details about this class) as input and returns a boolean indicating whether a file should be filtered out;
+* the second one is the `Glob` object to be filtered.
+
+Most commonly, inside the filter function (`cppFilter()` in this case), a rule can be applied by checking the `path` property (a string indicating the path of a file relative to the root directory) of the input object (`cppFile`). In our example, if `cppFile.path` is `"filterMe.cpp"`, `False` is returned, `True` otherwise.
+
+Try to compile the project:
 
 ```bash
 $ cd GlobAndFilter
