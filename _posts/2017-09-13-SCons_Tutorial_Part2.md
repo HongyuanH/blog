@@ -137,3 +137,14 @@ Hello World!
 ## References
 [1] Construction Environments ([http://www.scons.org/doc/0.97/HTML/scons-user/c1051.html](http://www.scons.org/doc/0.97/HTML/scons-user/c1051.html))  
 [2] SCons User Guide, 7.2. Construction Environments ([http://scons.org/doc/production/HTML/scons-user/ch07s02.html](http://scons.org/doc/production/HTML/scons-user/ch07s02.html))
+
+## Links
+* [Download the Examples](https://github.com/HongyuanH/scons_tutorial)
+* [SCons Tutorial Part 1 -- Installation & HelloWorld]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part1)
+* [SCons Tutorial Part 2 -- Environment]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part2)
+* [SCons Tutorial Part 3 -- SConscript]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part3)
+* [SCons Tutorial Part 4 -- variant\_dir]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part4)
+* [SCons Tutorial Part 5 -- Object & Library]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part5)
+* [SCons Tutorial Part 6 -- Glob & filter]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part6)
+* [SCons Tutorial Part 7 -- Adding Command Line Options]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part7)
+* [SCons Tutorial Part 8 -- LINKCOM]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part8)

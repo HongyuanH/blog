@@ -68,3 +68,14 @@ Another apporach is to use the method `AddOption()`. However it is not within th
 
 ## References
 [1] Bitbucket SCons Wiki -- UsingCommandLineArguments ([https://bitbucket.org/scons/scons/wiki/UsingCommandLineArguments](https://bitbucket.org/scons/scons/wiki/UsingCommandLineArguments))
+
+## Links
+* [Download the Examples](https://github.com/HongyuanH/scons_tutorial)
+* [SCons Tutorial Part 1 -- Installation & HelloWorld]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part1)
+* [SCons Tutorial Part 2 -- Environment]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part2)
+* [SCons Tutorial Part 3 -- SConscript]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part3)
+* [SCons Tutorial Part 4 -- variant\_dir]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part4)
+* [SCons Tutorial Part 5 -- Object & Library]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part5)
+* [SCons Tutorial Part 6 -- Glob & filter]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part6)
+* [SCons Tutorial Part 7 -- Adding Command Line Options]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part7)
+* [SCons Tutorial Part 8 -- LINKCOM]({{ site.github.url }}/blog/scons/SCons_Tutorial_Part8)
