@@ -86,6 +86,7 @@
         }
     }
 
+	/*
     figcaption {
         position: absolute;
         top: 0;
@@ -107,6 +108,19 @@
             background: gray;
         }
     }
+	*/
+	
+	figcaption {
+		position: static;
+		width: auto;
+		font-style: italic;
+		text-align: center;
+		color: #999;
+
+		&:before {
+			display: none;
+		}
+	}
 
     img[src*='#right'], img[src*='#left'], img[src*='#middle'] {
         width: auto;
