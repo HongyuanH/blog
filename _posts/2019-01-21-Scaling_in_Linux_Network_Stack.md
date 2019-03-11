@@ -3,7 +3,7 @@ layout:            post
 title:             "Memo: Scaling in Linux Network Stack"
 date:              2019-01-21
 tags:              Memo Network
-category:          Memo
+category:          Others
 author:            hongyuan
 
 ---
