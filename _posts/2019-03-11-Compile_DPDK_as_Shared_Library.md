@@ -57,13 +57,12 @@ export RTE_SDK_DIR=/opt/dpdk
 export RTE_TARGET=x86_64-native-linuxapp-gcc
 export RTE_INCLUDE=\${RTE_SDK_DIR}/\${RTE_TARGET}/include
 export LIBRARY_PATH=\$LIBRARY_PATH:\${RTE_SDK_DIR}/\${RTE_TARGET}/lib
-export PATH=\${RTE_SDK_DIR}/\${RTE_TARGET}/sbin:\$PATH
 " >> /etc/profile'
 source /etc/profile
 ```
 
-It is also very useful to create a shortcut to `dpdk-setup.sh` which can be used to setup huge pages and binding NIC, etc.
+It is also very useful to create a shortcut to `dpdk-devbind`
 
 ```bash
-sudo ln -s ../share/dpdk/usertools/dpdk-setup.sh /opt/dpdk/x86_64-native-linuxapp-gcc/sbin/dpdk-setup
+sudo ln -s /opt/dpdk/x86_64-native-linuxapp-gcc/share/dpdk/usertools/dpdk-devbind.py /usr/local/sbin/dpdk-devbind
 ```
