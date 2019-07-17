@@ -10,7 +10,7 @@ author:            hongyuan
 
 ## Just another Script
 
-Copy-and-paste the below script, replace `CONTAINER_IMAGE` with your own image name and enjoy (tested on Ubuntu 14.04 and 16.04):
+Copy-and-paste the below script, replace `CONTAINER_IMAGE` with your own image name and there you go!(tested on Ubuntu 14.04 and 16.04)
 
 ```bash
 CONTAINER_IMAGE="ubuntu14-x11"
@@ -32,7 +32,7 @@ sudo docker run -it --rm \
   -v ${DISPLAY_DIR}/X11-unix:/tmp/.X11-unix \
   -v ${DISPLAY_DIR}/Xauthority:/home/${USER}/.Xauthority \
   --hostname ${CONTAINER_HOSTNAME} \
-  --user ${USER}:${USER} \
+  -u ${USER}:${USER} \
   ${CONTAINER_IMAGE}
 ```
 
