@@ -161,7 +161,7 @@ sudo docker system prune
 ## Real Example
 
 ```
-sudo docker run -it --privileged --net host --u ${USER}:${USER} -v /opt/intel:/opt/intel -v /mnt/huge:/mnt/huge ${IMAGE}
+sudo docker run -it --privileged --net host -u ${USER}:${USER} -v /opt/intel:/opt/intel -v /mnt/huge:/mnt/huge ${IMAGE}
 ```
 
 ## References
