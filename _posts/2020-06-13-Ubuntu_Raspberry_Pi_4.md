@@ -8,13 +8,13 @@ author:            hongyuan
 
 ---
 
-## Where to start?
+## Where to start?{:.em-uln}
 
 [Click here for the official tutorial](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#1-overview).
 
-## Or just follow these steps:
+## Or just follow these steps{:.em-uln}
 
-#### 1. Download Raspberry Pi Imager, depending on which OS your are using on your PC:
+##### 1. Download Raspberry Pi Imager, depending on which OS your are using on your PC:
 
 [Click here if you are running Ubuntu](https://downloads.raspberrypi.org/imager/imager_amd64.deb)
 
@@ -32,11 +32,11 @@ Ubuntu 20 or 18?
 
 It seems Pi 4 doesn't work well with **Ubuntu Core 18** for some reasons. I saw the `start4.elf: is not compatible` error when booting Raspberry Pi with **Ubuntu Core 18**, so I chose to install **Ubuntu 20** instead.
 
-#### 3. Write the Ubuntu image into SD card:
+##### 3. Write the Ubuntu image into SD card:
 
 Insert the SD card into your PC. Open **Raspberry Pi Imager**. Click `CHOOSE SD CARD` to select the SD card. Click `CHOOSE OS` -> `Use custom` and locate the Ubuntu image you just downloaded. Click `WRITE`.
 
-#### 4. WIFI:
+##### 4. WIFI:
 
 Open the partition created during step 3 and edit the `network-config` file to add your Wi-Fi credentials. Below is an example of how I configured WIFI with static IP address for my Pi:
 
@@ -58,21 +58,21 @@ wifis:
 
 During the first boot, your Raspberry Pi will fail to connect to WIFI the first time around. Simply reboot sudo reboot and it will work.
 
-## Troubleshoot 
+## Troubleshoot{:.em-uln}
 
-#### Can't see the "system-boot" partition?
+##### Can't see the "system-boot" partition?
 
 In my Windows PC the partition was shown as `RECOVERY` instead of `system-boot` after loading the image into SD card.
 
-#### Stuck on rainbow colour image?
+##### Stuck on rainbow colour image?
 
 I also found the grenn LED next to the power supply blinking 7 times which means the file `kernel.img` was not found on SD card. I personally didn't know why this happened but reburning the SD card solved the problem.
 
-#### Can't login into Pi?
+##### Can't login into Pi?
 
 I got the `Incorrect login` error after booting Pi. Turns out Pi needs some extra time to boot even when you can already see the login prompt. Wait for one or two minutes before trying again.
 
-#### Can't connect to WIFI?
+##### Can't connect to WIFI?
 
 I got this error when trying to configure WIFI:
 
