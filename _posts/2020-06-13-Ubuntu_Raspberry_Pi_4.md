@@ -8,35 +8,35 @@ author:            hongyuan
 
 ---
 
-## Where to start?{:.em-uln}
+## Where to start?
 
 [Click here for the official tutorial](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#1-overview).
 
-## Or just follow these steps{:.em-uln}
+## Or follow these steps
 
-##### 1. Download Raspberry Pi Imager, depending on which OS your are using on your PC:
+**1. Raspberry Pi Imager**{:.em-uln}
 
-[Click here if you are running Ubuntu](https://downloads.raspberrypi.org/imager/imager_amd64.deb)
+Depending on which OS your are using on your PC, download the imager:
 
-[Click here if you are running Windows](https://downloads.raspberrypi.org/imager/imager.exe)
+* [Click here if you are running Ubuntu](https://downloads.raspberrypi.org/imager/imager_amd64.deb)
 
-[Click here if you are running macOS](https://downloads.raspberrypi.org/imager/imager.dmg)
+* [Click here if you are running Windows](https://downloads.raspberrypi.org/imager/imager.exe)
+
+* [Click here if you are running macOS](https://downloads.raspberrypi.org/imager/imager.dmg)
 
 Install it on your PC after downloading.
 
-##### 2. Download Ubuntu iamge for Raspberry Pi:
+**2. Ubuntu image**{:.em-uln}
 
-Download the Ubuntu image you want from [here](https://ubuntu.com/download/raspberry-pi).
-
-Ubuntu 20 or 18?
+Download the Ubuntu image from [here](https://ubuntu.com/download/raspberry-pi).
 
 It seems Pi 4 doesn't work well with **Ubuntu Core 18** for some reasons. I saw the `start4.elf: is not compatible` error when booting Raspberry Pi with **Ubuntu Core 18**, so I chose to install **Ubuntu 20** instead.
 
-##### 3. Write the Ubuntu image into SD card:
+**3. Write SD card**{:.em-uln}
 
 Insert the SD card into your PC. Open **Raspberry Pi Imager**. Click `CHOOSE SD CARD` to select the SD card. Click `CHOOSE OS` -> `Use custom` and locate the Ubuntu image you just downloaded. Click `WRITE`.
 
-##### 4. WIFI:
+**4. WIFI:**{:.em-uln}
 
 Open the partition created during step 3 and edit the `network-config` file to add your Wi-Fi credentials. Below is an example of how I configured WIFI with static IP address for my Pi:
 
@@ -58,21 +58,21 @@ wifis:
 
 During the first boot, your Raspberry Pi will fail to connect to WIFI the first time around. Simply reboot sudo reboot and it will work.
 
-## Troubleshoot{:.em-uln}
+## Troubleshoot
 
-##### Can't see the "system-boot" partition?
+**1. Can't see the "system-boot" partition?**{:.em-uln}
 
 In my Windows PC the partition was shown as `RECOVERY` instead of `system-boot` after loading the image into SD card.
 
-##### Stuck on rainbow colour image?
+**2. Stuck on rainbow colour image?**{:.em-uln}
 
 I also found the grenn LED next to the power supply blinking 7 times which means the file `kernel.img` was not found on SD card. I personally didn't know why this happened but reburning the SD card solved the problem.
 
-##### Can't login into Pi?
+**3. Can't login into Pi?**{:.em-uln}
 
 I got the `Incorrect login` error after booting Pi. Turns out Pi needs some extra time to boot even when you can already see the login prompt. Wait for one or two minutes before trying again.
 
-##### Can't connect to WIFI?
+**4. Can't connect to WIFI?**{:.em-uln}
 
 I got this error when trying to configure WIFI:
 
