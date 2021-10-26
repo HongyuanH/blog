@@ -11,18 +11,8 @@ excerpt:   This page contains the curriculum vitae (CV).
 
 ## Profile
 
-Algorithm Engineer in Cobham Wireless.
+Senior Research And Development Engineer at Viavi Solutions.
 
----
-
-## Skills
-
-* Python, C/C++, Matlab, HTML, Javascript, CSS
-* Linux, real-time OS & application, USRP
-* End-to-end network tuning (10/40GE), DPDK
-* Intrinsic programming
-* GUI design & programming
-* 4G LTE, Verizon 5G, 5GNR
 
 ---
 
