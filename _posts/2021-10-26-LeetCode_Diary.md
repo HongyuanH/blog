@@ -17,7 +17,7 @@ I like it!
 **Notes**
 
 | ---- | ---- |
-| Level Order Binary Tree Traversal | queue |
+| Level Order Binary Tree Traversal | queue, often need to keep track of subtree parameters (level, min, max, etc.) |
 
 **Gotcha**
 - `if root`
@@ -27,7 +27,7 @@ I like it!
 
 **Basic**
 - [x] Maximum Depth of Binary Tree
-- [ ] Validate Binary Search Tree
+- [x] Validate Binary Search Tree
 - [ ] Symmetric Tree
 - [x] Binary Tree Level Order Traversal
 - [ ] Convert Sorted Array to Binary Search Tree
