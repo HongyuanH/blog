@@ -8,41 +8,40 @@ author:            hongyuan
 
 ---
 
+Keeping some notes here while LeetCoding. Rabbit Pie.
+
 > A LeetCode a day, keep unemployment away.
 
-I like it! 
+Haha!
 
 ## Trees
 
-**Notes**
-
-| ---- | ---- |
-| Level Order Binary Tree Traversal | queue, often need to keep track of subtree parameters (level, min, max, etc.) |
-
 **Gotcha**
-- `if root`
 - `if node`
 - `if node.left`
 - `if node.right`
 
 **Basic**
-- [x] Maximum Depth of Binary Tree
-- [x] Validate Binary Search Tree
-- [ ] Symmetric Tree
-- [x] Binary Tree Level Order Traversal
-- [ ] Convert Sorted Array to Binary Search Tree
+
+|      | Problem | CPU | RAM | Notes |
+| ---- | ------- | --- | --- | ----- |
+| √ | [Maximum Depth of Binary Tree](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/trees/MaximumDepthOfBinaryTree.py) | 63.78% | 41.99% |
+| √ | [Validate Binary Search Tree](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/trees/ValidateBinarySearchTree.py) | 80.54% | 81.18% | Can exit earlier; |
+|   | [Symmetric Tree]() | 
+| √ | [Binary Tree Level Order Traversal](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/trees/BinaryTreeLevelOrderTraversal.py) | 72.58% | 86.41% | Use queue;<br />Keep track of subtree parameters (level, lower limit, upper limit, etc.); |
+| √ | [Convert Sorted Array to Binary Search Tree](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/trees/ConvertSortedArrayToBinarySearchTree.py) | 79.73%  | 15.73% | Bisection; |
 
 **Advanced**
 
+TBA
+
 **Expert!**
+
+TBA
 
 ## Dynamic Programming
 
-DAG Shortest Path -> Topological Sort
 
-Word Break:
-https://leetcode.com/problems/word-break/discuss/43808/Simple-DP-solution-in-Python-with-description
-https://www.zhihu.com/question/23995189
 
 
 ## Links
