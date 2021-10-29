@@ -27,7 +27,7 @@ Haha!
 | ---- | ------- | --- | --- | ----- |
 | √ | [Maximum Depth of Binary Tree](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/trees/MaximumDepthOfBinaryTree.py) | 63.78% | 41.99% |
 | √ | [Validate Binary Search Tree](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/trees/ValidateBinarySearchTree.py) | 80.54% | 81.18% | Can exit earlier; |
-|   | [Symmetric Tree]() | 
+| √ | [Symmetric Tree](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/trees/SymmetricTree.py) | 70.47% | 78.08% | Check the leaves; |
 | √ | [Binary Tree Level Order Traversal](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/trees/BinaryTreeLevelOrderTraversal.py) | 72.58% | 86.41% | Use queue;<br />Keep track of subtree parameters (level, lower limit, upper limit, etc.); |
 | √ | [Convert Sorted Array to Binary Search Tree](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/trees/ConvertSortedArrayToBinarySearchTree.py) | 79.73%  | 15.73% | Bisection; |
 
