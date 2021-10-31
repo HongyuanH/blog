@@ -14,6 +14,8 @@ Keeping some notes here while LeetCoding. Rabbit Pie.
 
 Haha!
 
+
+
 ## Trees
 
 **Gotcha**
@@ -31,16 +33,15 @@ Haha!
 | √ | [Binary Tree Level Order Traversal](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/trees/BinaryTreeLevelOrderTraversal.py) | 72.58% | 86.41% | Use queue;<br />Keep track of subtree parameters (level, lower limit, upper limit, etc.); |
 | √ | [Convert Sorted Array to Binary Search Tree](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/trees/ConvertSortedArrayToBinarySearchTree.py) | 79.73%  | 15.73% | Bisection; |
 
-**Advanced**
 
-TBA
-
-**Expert!**
-
-TBA
 
 ## Dynamic Programming
 
+**Expert!**
+
+|      | Problem | CPU | RAM | Notes |
+| ---- | ------- | --- | --- | ----- |
+| √ | [Word Break](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsHard/dynamicProgramming/wordBreak.py) | 87.39% | 47.15% | Common methods: brute force; DFS; BFS; DP |
 
 
 
