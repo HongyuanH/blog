@@ -38,8 +38,8 @@ Haha!
 | | **Basic** |
 | √ | [Climbing Stairs](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/dynamicProgramming/ClimbingStairs.py) | 86.29% | 43.91% |
 | √ | [Best Time to Buy and Sell Stock](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/dynamicProgramming/BestTimeToBuyAndSellStock.py) | 70.66% | 54.73% | DP array size can be reduced |
-| √ | [Maximum Subarray]() |
-| √ | [House Robber]() |
+| √ | [Maximum Subarray]((https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/dynamicProgramming/ClimbingStairs.py)) | 37.85% | 55.83% |  Kadane's algorithm isn't fast enough? |
+|  | [House Robber]() |
 | | **Advanced** | 
 | |
 | | **Expert!** | 
