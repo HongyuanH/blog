@@ -14,6 +14,18 @@ Keeping some notes here while LeetCoding. Rabbit Pie.
 
 Haha!
 
+## Linked List
+
+|      | Problem | CPU | RAM | Notes |
+| ---- | ------- | --- | --- | ----- |
+| | **Basic** |
+| √ | [Delete Node in a Linked List](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/linkedList/DeleteNodeInALinkedList.py) | 67.97% | 31.15% | Think outside the box? |
+|  | Delete Node in a Linked List |
+|  | Remove Nth Node From End of List |
+|  | Reverse Linked List |
+|  | Merge Two Sorted Lists |
+|  | Palindrome Linked List |
+|  | Linked List Cycle |
 
 
 ## Trees
@@ -45,7 +57,17 @@ Haha!
 | | **Expert!** | 
 | √ | [Word Break](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsHard/dynamicProgramming/WordBreak.py) | 87.39% | 47.15% | Common methods: brute force; DFS; BFS; DP |
 
+## Backtracking
 
+|      | Problem | CPU | RAM | Notes |
+| ---- | ------- | --- | --- | ----- |
+| | **Advanced** |
+|   | Letter Combinations of a Phone Number |
+|   | Generate Parentheses |
+|   | Permutations |
+| √ | [Subsets](/https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsMedium/backTracking/Subsets.py)| 84.48% | 52.00% | Path |
+|   | Word Search |
+  
 ## Links
 
 [LeetCode Top Interview Questions Easy Collection](https://leetcode.com/explore/interview/card/top-interview-questions-easy)
