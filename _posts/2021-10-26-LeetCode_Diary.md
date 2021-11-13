@@ -20,7 +20,6 @@ Haha!
 | ---- | ------- | --- | --- | ----- |
 | | **Basic** |
 | √ | [Delete Node in a Linked List](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsEasy/linkedList/DeleteNodeInALinkedList.py) | 67.97% | 31.15% | Think outside the box? |
-|  | Delete Node in a Linked List |
 |  | Remove Nth Node From End of List |
 |  | Reverse Linked List |
 |  | Merge Two Sorted Lists |
@@ -65,7 +64,7 @@ Haha!
 |   | Letter Combinations of a Phone Number |
 |   | Generate Parentheses |
 |   | Permutations |
-| √ | [Subsets](/https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsMedium/backTracking/Subsets.py)| 84.48% | 52.00% | Path |
+| √ | [Subsets](https://github.com/HongyuanH/LeetCodeAns/blob/main/topInterviewQuestionsMedium/backTracking/Subsets.py)| 84.48% | 52.00% | Path |
 |   | Word Search |
   
 ## Links
