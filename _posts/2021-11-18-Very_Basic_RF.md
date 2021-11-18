@@ -8,6 +8,8 @@ author:            hongyuan
 
 ---
 
+[This textbook](https://pysdr.org/) is awesome! Here I am just putting the very basics for myself to 复习 from time to time.
+
 ## IQ signal
 
 For IQ signel:
@@ -49,7 +51,6 @@ def mwatt_to_dbm(mwatt):
 
 ## Noise & SNR
 
-
 ## Fourier Transform
 
 Continuous fourier transform:
@@ -67,6 +68,28 @@ Discrete fourier transform (DFT):
 Relationship between frquency domain and time domain of a discrete signal can be illustrated as:
 
 ![dft.gif]({{ site.github.url }}/res/2021-11-18-Very_Basic_RF/dft.gif#middle#middle)
+
+Linear property:
+
+![linear_property.svg]({{ site.github.url }}/res/2021-11-18-Very_Basic_RF/linear_property.svg#middle#middle)
+
+Shift property:
+
+![shift_property.svg]({{ site.github.url }}/res/2021-11-18-Very_Basic_RF/shift_property.svg#middle#middle)
+
+Scaling property:
+
+![scaling_property.svg]({{ site.github.url }}/res/2021-11-18-Very_Basic_RF/scaling_property.svg#middle#middle)
+
+Convolution property:
+
+![conv_property.svg]({{ site.github.url }}/res/2021-11-18-Very_Basic_RF/conv_property.svg#middle#middle)
+
+## FFT
+
+Scaling:
+
+Shift:
 
 
 
