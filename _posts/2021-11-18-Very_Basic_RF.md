@@ -85,17 +85,27 @@ Convolution property:
 
 ![conv_property.svg]({{ site.github.url }}/res/2021-11-18-Very_Basic_RF/conv_property.svg#middle#middle)
 
-## FFT
+## FFT Scaling:
 
-Scaling:
+[https://electronics.stackexchange.com/a/25941](https://electronics.stackexchange.com/a/25941):
+>The 1/N scaling factor is almost arbitrary placed. An unscaled FFT followed by an unscaled IFFT using exactly the same complex exponential twiddle factors multiplies the input vector by scaler N. In order to get back the original waveform after an IFFT(FFT())round trip (thus making them inverse functions), some FFT/IFFT implementation pairs scale the FFT by 1/N, some scale the IFFT by 1/N, some scale both by 1/sqrt(N).
 
-Shift:
+[numpy's doc](https://numpy.org/doc/stable/reference/routines.fft.html#normalization):
+> The default normalization ("backward") has the direct (forward) transforms unscaled and the inverse (backward) transforms scaled by 1/n. It is possible to obtain unitary transforms by setting the keyword argument norm to "ortho" so that both direct and inverse transforms are scaled by 1/sqrt(n).
 
+Parseval's theorem: scale both FFT by `1/sqrt(n)` and IFFT by `sqrt(n)`.
+
+## FFT shift:
+
+![fft-shift.svg]({{ site.github.url }}/res/2021-11-18-Very_Basic_RF/fft-shift.svg#middle#middle)
+
+[https://pysdr.org/content/frequency_domain.html#fast-fourier-transform-fft](https://pysdr.org/content/frequency_domain.html#fast-fourier-transform-fft):
+>It is always the case; the output of the FFT will always show -f<sub>s</sub>/2 to f<sub>s</sub>/2 where f<sub>s</sub> is the sample rate. I.e., the output will always have a negative portion and positive portion. If the input is complex, the negative and positive portions will be different, but if it real then they will be identical.
+>
+>Regarding the frequency interval, each bin corresponds to f<sub>s</sub>/N Hz, i.e., feeding in more samples to each FFT will lead to more granular resolution in your output. A very minor detail that can be ignored if you are new: mathematically, the very last index does not correspond to exactly f<sub>s</sub>/2, rather it’s f<sub>s</sub>/2 - f<sub>s</sub>/N which for a large N will be approximately f<sub>s</sub>/2.
 
 
 ## Power Spectral Density
-
-## Bandwidth
 
 
 ## References
@@ -107,12 +117,5 @@ Shift:
 [https://pysdr.org/](https://pysdr.org/)
 
 [http://paulbourke.net/miscellaneous/dft/](http://paulbourke.net/miscellaneous/dft/)
-
-[https://dsp.stackexchange.com/questions/19615/converting-raw-i-q-to-db](https://dsp.stackexchange.com/questions/19615/converting-raw-i-q-to-db)
-
-Note on bandwidth you probably don't need to read
-It may also be relevant to note that if you filter a signal, you are by definition removing some of the signal power, so the measurement will be smaller.
-
-In particular, a FFT (such as is the primary visual display in tools like SDR#) can loosely be thought of as a large collection of extremely sharp filters; each output “bin” collects some fraction of the input power. Accordingly, the power in each bin depends on the width of the bin. If you divide by the width of the bin in hertz (that value being sample rate/FFT length) before taking the logarithm, then instead of dB power, you measure dB power spectral density, which has the advantage of being independent of the FFT bin width if the features you care about are wider than one bin (e.g. a wideband modulated signal); if they are narrower (e.g. pure tones) then the power value is more useful.
 
 [https://dsp.stackexchange.com/questions/33849/adding-awgn-noise-with-a-correct-noise-power-to-the-signal](https://dsp.stackexchange.com/questions/33849/adding-awgn-noise-with-a-correct-noise-power-to-the-signal)
