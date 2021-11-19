@@ -14,18 +14,18 @@ author:            hongyuan
 
 For IQ signel:
 
-* amplitude = sqrt(I^2 + Q^2)
-* power = I^2 + Q^2
+* amplitude = sqrt(I<sup>2</sup> + Q<sup>2</sup>)
+* power = I<sup>2</sup> + Q<sup>2</sup>
 
 In DSP, often amplitude == power == 1.
 
 ## Amplitude, Power & Decibels
 
-For amplitude: dB = 20 * log10(v1/v2).
+For amplitude: dB = 20 * log<sub>10</sub>(V<sub>1</sub>/V<sub>2</sub>).
 
-For power: dB = 10 * log10(p1/p2).
+For power: dB = 10 * log<sub>10</sub>(P<sub>1</sub>/P<sub>2</sub>).
 
-Most of the time we deal with power, so dB = 10 * log10(p1/p2).
+Most of the time we deal with power, so dB = 10 * log<sub>10</sub>(P<sub>1</sub>/P<sub>2</sub>).
 
 In DSP, power usually gets normalized and has no units.
 
@@ -50,6 +50,20 @@ def mwatt_to_dbm(mwatt):
 ```
 
 ## Noise & SNR
+
+Variance = (Standard Deviation)<sup>2</sup> = σ<sup>2</sup>
+
+
+
+## Sampling
+
+How discrete samping works:
+
+![sampling.png]({{ site.github.url }}/res/2021-11-18-Very_Basic_RF/sampling.png#middle#middle)
+
+Nyquist Samping Rate:
+
+![nyquist_sampling.png]({{ site.github.url }}/res/2021-11-18-Very_Basic_RF/nyquist_sampling.png#middle#middle)
 
 ## Fourier Transform
 
@@ -105,6 +119,8 @@ Parseval's theorem: scale both FFT by `1/sqrt(n)` and IFFT by `sqrt(n)`.
 >Regarding the frequency interval, each bin corresponds to f<sub>s</sub>/N Hz, i.e., feeding in more samples to each FFT will lead to more granular resolution in your output. A very minor detail that can be ignored if you are new: mathematically, the very last index does not correspond to exactly f<sub>s</sub>/2, rather it’s f<sub>s</sub>/2 - f<sub>s</sub>/N which for a large N will be approximately f<sub>s</sub>/2.
 
 
+
+
 ## Power Spectral Density
 
 
@@ -115,6 +131,8 @@ Parseval's theorem: scale both FFT by `1/sqrt(n)` and IFFT by `sqrt(n)`.
 [https://en.wikipedia.org/wiki/Discrete_Fourier_transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform)
 
 [https://pysdr.org/](https://pysdr.org/)
+
+[https://www.hebergementwebs.com/signals-and-systems-tutorial/signal-sampling-theorem](https://www.hebergementwebs.com/signals-and-systems-tutorial/signal-sampling-theorem)
 
 [http://paulbourke.net/miscellaneous/dft/](http://paulbourke.net/miscellaneous/dft/)
 
