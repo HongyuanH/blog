@@ -21,9 +21,7 @@ In DSP, often amplitude == power == 1.
 
 ## Amplitude, Power & Decibels
 
-For amplitude: dB = 20 * log<sub>10</sub>(V<sub>1</sub>/V<sub>2</sub>).
-
-For power: dB = 10 * log<sub>10</sub>(P<sub>1</sub>/P<sub>2</sub>).
+dB = 10 * log<sub>10</sub>(P<sub>1</sub>/P<sub>2</sub>) = 10 * log<sub>10</sub>((V<sub>1</sub>/V<sub>2</sub>)<sup>2</sup>) = 20 * log<sub>10</sub>(V<sub>1</sub>/V<sub>2</sub>).
 
 Most of the time we deal with power, so dB = 10 * log<sub>10</sub>(P<sub>1</sub>/P<sub>2</sub>).
 
@@ -53,7 +51,26 @@ def mwatt_to_dbm(mwatt):
 
 Variance = (Standard Deviation)<sup>2</sup> = σ<sup>2</sup>
 
+For AWGN power is normally measured as total noise power in a given bandwidth:
 
+Noise Power = Noise Spectral Density * Bandwidth
+
+Simulation:
+
+```python
+n = 1024
+signal_power = 1.0 # dBm
+snr_db = 10 
+snr_linear = 10.0**(snr_db/10.0)
+noise_power = variance = signal_power / snr_linear # 0.1 dBm
+std_deviation = np.sqrt(noise_power)
+noise = 1.0/np.sqrt(2) * (np.random.randn(n) + 1j*np.random.randn(n)) * std_deviation
+signal = qpsk(n) * np.sqrt(signal_power)
+channel_coefficient = 1
+received_signal = channel_coefficient * signal + noise
+print(np.var(signal))  # signal_power -> 1.0 dBm
+print(np.var(noise))   # noise_power -> 0.1 dBm
+```
 
 ## Sampling
 
