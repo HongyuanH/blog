@@ -24,7 +24,7 @@ author:            hongyuan
 
 ![oran-arch](https://docs.o-ran-sc.org/en/latest/_images/o-ran-architecture.png)
 
-
+![oran-fronthaul](https://www.nttdocomo.co.jp/english/binary/pdf/corporate/technology/rd/technical_journal/bn/vol21_1/vol21_1_007en.pdf)
 
 ## References
 
@@ -43,3 +43,7 @@ https://www.sharetechnote.com/html/5G/5G_RRC_Overview.html
 https://www.hubersuhner.com/en/documents-repository/technologies/pdf/fiber-optics-documents/5g-fundamentals-functional-split-overview
 
 https://docs.o-ran-sc.org/en/latest/architecture/architecture.html
+
+https://www.nttdocomo.co.jp/english/binary/pdf/corporate/technology/rd/technical_journal/bn/vol21_1/vol21_1_007en.pdf
+
+
