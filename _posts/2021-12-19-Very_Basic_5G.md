@@ -2,7 +2,7 @@
 layout:            post
 title:             "Very Basic 5G"
 date:              2021-12-19
-tags:              5G
+tags:              5G RF
 category:          Wireless Communications
 author:            hongyuan
 

@@ -9,23 +9,28 @@ weight:    90
 excerpt:   This page contains the curriculum vitae (CV).
 ---
 
-## Profile
+## Work
 
-Senior Research And Development Engineer at Viavi Solutions.
+2022.03 - Present
+: C++ Developer
+: IG Group
 
+2018.02 - 2022.03
+: Senior R&D Engineer
+: VIAVI Solutions
+
+2016.02 - 2018.02
+: Algorithm Engineer
+: Cobham Wireless
 
 ---
 
 ## Education
 
-09.2014 - 09.2015
+2014 - 2015
 : MSc Wireless & Optical Communications
 : University College London (UCL), London
 
-02.2013 - 07.2013
-: Exchange student of Electrical Engineering
-: National Cheng Kung University (NCKU), Taiwan
-
-09.2010 - 07.2014
+2010 - 2014
 : BSc Electronic Information Science & Technology
 : Sun Yat-sen University (SYSU), Guangzhou

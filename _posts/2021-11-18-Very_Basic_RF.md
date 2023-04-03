@@ -3,7 +3,7 @@ layout:            post
 title:             "Very Basic RF"
 date:              2021-11-18
 tags:              RF
-category:          Others
+category:          Wireless Communications
 author:            hongyuan
 
 ---
