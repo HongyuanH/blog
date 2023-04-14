@@ -142,3 +142,34 @@ public:
     int nR; // number of right bracket
 };
 ```
+
+### [permutations](https://leetcode.com/problems/permutations/description/)
+
+- At each node, swap `nums[i]` with `nums[idx]`
+- By freezing the number at `idx` and call `dfs()`, we find all the permutations for `nums[idx+1:]`
+- Swap back `nums[i]` with `nums[idx]` again, and go to the next `i`
+- After the for loops we have all the permutations for `nums[idx:]`, return to the previous node (backtracking)
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        dfs( nums, 0 );
+        return ans;
+    }
+    
+    void dfs(vector<int>& nums, int idx) {
+        if ( idx == nums.size() - 1 ) {
+            ans.push_back( nums );
+            return;
+        }
+        for ( int i=idx; i<nums.size(); i++ ) {
+            swap( nums[i], nums[idx] );
+            dfs( nums, idx + 1 );
+            swap( nums[i], nums[idx] );
+        }
+    }
+    
+    vector<vector<int>> ans;
+};
+```
