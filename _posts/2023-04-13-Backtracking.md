@@ -10,21 +10,33 @@ author:            hongyuan
 
 ## General approach
 
+* Process all the paths starting from the root node(DFS):
+    - If the current path has a valid answer, pick it
+    - If reaching the end of a path, return
+    - For each of the children nodes:
+        * If the node is valid:
+            - push the node
+            - process all its children (DFS)
+            - pop the node
+
+
 ```cpp
 auto backtracking() {
-    dfs();
+    dfs( root );
     return ans;
 }
 
 void dfs() {
     if ( valid_ans ) {
         ans.push_back( ans_from_cur_path );
+    }
+    if ( end_of_path ) {
         return;
     }
     for ( auto node : nodes ) {
         if ( valid_node ) {
             cur_path.push_back( node );
-            dfs(ans);
+            dfs( node );
             cur_path.pop_back( node );
         }
     }
@@ -33,9 +45,9 @@ void dfs() {
 
 ## Examples
 
-https://leetcode.com/problems/subsets/description/
+### [subsets](https://leetcode.com/problems/subsets/description/)
 
-![subset.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/subset.svg#middle#middle)
+![subset.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/subset.svg#middle)
 
 ```cpp
 class Solution {
@@ -59,9 +71,9 @@ public:
 };
 ```
 
-https://leetcode.com/problems/subsets-ii/description/
+### [subsets II](https://leetcode.com/problems/subsets-ii/description/)
 
-![subset2.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/subset2.svg#middle#middle)
+![subset2.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/subset2.svg#middle)
 
 ```cpp
 class Solution {
@@ -88,9 +100,9 @@ public:
 };
 ```
 
-https://leetcode.com/problems/generate-parentheses/description/
+### [generate parentheses](https://leetcode.com/problems/generate-parentheses/description/)
 
-![parenthness.drawio.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/parenthness.svg#middle#middle)
+![parenthness.drawio.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/parenthness.svg#middle)
 
 ```cpp
 class Solution {
