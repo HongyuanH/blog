@@ -53,3 +53,34 @@ int main() {
     return 0;
 }
 ```
+
+### decltype(auto)
+
+Return type forwarding:
+
+```cpp
+template<class Fun, class... Args>
+decltype(auto) wrap(Fun fun, Args&&... args) 
+{ 
+    return fun(forward<Args>(args)...); 
+}
+
+int retVal(int x) {
+    return x;
+}
+
+int& retRef(int& x) {
+    return x;
+}
+
+int main()
+{
+    int x = 100;
+    decltype(auto) x1 = wrap(retVal, x);
+    decltype(auto) x2 = wrap(retRef, x);
+    cout << is_same<decltype(x1), int&>::value << endl; // 0
+    cout << is_same<decltype(x2), int&>::value << endl; // 1
+    return 0;
+}
+```
+
