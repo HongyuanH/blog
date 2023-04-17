@@ -117,11 +117,11 @@ public:
 class Solution {
 public:
     vector<string> generateParenthesis(int n) {
-        dfs(n);
+        dfs(n, 0, 0);
         return ans;
     }
     
-    void dfs(const int n) {
+    void dfs(const int n, const int nL, const int nR) {
         if ( nL == n ) {
             // All left backets are used, produce a valid answer by appending ')'
             ans.push_back( cur + string(n - nR, ')') );
@@ -132,29 +132,23 @@ public:
         if ( nL > nR  ) {
             // Fix ')'
             cur.push_back(')');
-            nR ++;
             // Find all remaining combinations
-            dfs(n);
+            dfs(n, nL, nR+1);
             // Backtracking
-            nR --;
             cur.pop_back();
         }
 
         // left node is always valid
         // Fix '('
         cur.push_back('(');
-        nL ++;
         // Find all remaining combinations
-        dfs(n);
+        dfs(n, nL+1, nR);
         // Backtracking
-        nL --;
         cur.pop_back();
     }
         
     vector<string> ans;
     string cur;
-    int nL; // number of left bracket
-    int nR; // number of right bracket
 };
 ```
 
