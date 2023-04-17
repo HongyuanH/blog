@@ -58,10 +58,14 @@ public:
     }
 
     void dfs(const vector<int>& nums, const int idx) {
+        // Each node is a valid answer
         ans.push_back(cur);
         for (int i=idx; i<nums.size(); i++) {
+            // Fix nums[i]
             cur.push_back(nums[i]);
+            // Find all subsets for nums[i+1:]
             dfs(nums, i+1);
+            // Backtracking
             cur.pop_back();
         }
     }
@@ -85,11 +89,16 @@ public:
     }
 
     void dfs(const vector<int>& nums, const int idx) {
+        // Each node is a valid answer
         ans.push_back(cur);
         for (int i=idx; i<nums.size(); i++) {
+            // Filter duplicates
             if (i==idx || nums[i] != nums[i-1]) {
+                // Fix nums[i]
                 cur.push_back(nums[i]);
+                // Find all subsets for nums[i+1:]
                 dfs(nums, i+1);
+                // Backtracking
                 cur.pop_back();
             }
         }
@@ -102,7 +111,7 @@ public:
 
 ### [generate parentheses](https://leetcode.com/problems/generate-parentheses/description/)
 
-![parenthness.drawio.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/parenthness.svg#middle)
+![parenthness.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/parenthness.svg#middle)
 
 ```cpp
 class Solution {
@@ -119,19 +128,25 @@ public:
             return;
         }
 
-        // right node is only valid when nL > nR
+        // Filter: right node is only valid when nL > nR
         if ( nL > nR  ) {
+            // Fix ')'
             cur.push_back(')');
             nR ++;
+            // Find all remaining combinations
             dfs(n);
+            // Backtracking
             nR --;
             cur.pop_back();
         }
 
         // left node is always valid
+        // Fix '('
         cur.push_back('(');
         nL ++;
+        // Find all remaining combinations
         dfs(n);
+        // Backtracking
         nL --;
         cur.pop_back();
     }
@@ -145,10 +160,8 @@ public:
 
 ### [permutations](https://leetcode.com/problems/permutations/description/)
 
-- At each node, swap `nums[i]` with `nums[idx]`
-- By freezing the number at `idx` and call `dfs()`, we find all the permutations for `nums[idx+1:]`
-- Swap back `nums[i]` with `nums[idx]` again, and go to the next `i`
-- After the for loops we have all the permutations for `nums[idx:]`, return to the previous node (backtracking)
+![permutations.drawio.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/permutations.svg#middle)
+
 
 ```cpp
 class Solution {
@@ -160,12 +173,16 @@ public:
     
     void dfs(vector<int>& nums, int idx) {
         if ( idx == nums.size() - 1 ) {
+            // Valid answer is found when reaching the end of nums
             ans.push_back( nums );
             return;
         }
         for ( int i=idx; i<nums.size(); i++ ) {
+            // Fix nums[0:idx] after swapping
             swap( nums[i], nums[idx] );
+            // Find all remaining permutations
             dfs( nums, idx + 1 );
+            // Backtracking
             swap( nums[i], nums[idx] );
         }
     }
