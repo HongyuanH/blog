@@ -84,3 +84,40 @@ int main()
 }
 ```
 
+### Type alias templates
+
+Templates are used to generate types. In traditional C++, typedef can define a new name for the type, but there is no way to define a new name for the template. Because the template is not a type. C++11 uses `using` to solve this problem.
+
+```cpp
+template<typename T, typename U>
+class MagicType {
+public:
+    T dark;
+    U magic;
+};
+
+// not allowed
+// template<typename T>
+// typedef MagicType<std::vector<T>, std::string> FakeDarkMagic;
+
+template<typename T>
+using TrueDarkMagic = MagicType<std::vector<T>, std::string>;
+```
+
+It can also be used for function pointer:
+
+```cpp
+// Before C++11
+// typedef int (*FuncType)(int);
+
+using FuncType = int(*)(int);
+
+int Run(FuncType func) {
+    return func(1);
+}
+
+int main(){
+    cout << Run( [](int a) -> int { return a + 1; } ) << endl;
+    return 0;
+}
+```
