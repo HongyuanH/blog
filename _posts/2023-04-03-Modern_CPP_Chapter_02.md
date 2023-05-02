@@ -121,3 +121,59 @@ int main(){
     return 0;
 }
 ```
+
+### Variadic templates
+
+Recursion is a very easy way to think of and the most classic approach.
+
+```cpp
+// Recursive template
+template<typename T0>
+void printf1(T0 value) {
+    cout << value << endl;
+}
+template<typename T, typename... Ts>
+void printf1(T value, Ts... args) {
+    cout << value << ' ';
+    printf1(args...);
+}
+
+// Variable parameter template expansion
+template<typename T, typename... Ts>
+void printf2(T value, Ts... args) {
+    cout << value << ' ';
+    if constexpr (sizeof...(args) > 0)
+        printf2(args...);
+    else
+        cout << endl;
+}
+
+// Initialize list expansion
+template<typename T, typename... Ts>
+void printf3(T value, Ts... args) {
+    cout << value << ' ';
+    (void) initializer_list<T>{([&args] {
+        cout << args << ' ';
+    }(), value)...};
+    cout << endl;
+}
+```
+
+### Fold expression
+
+```cpp
+template<typename... Ts>
+void printf4(Ts&&... args)
+{
+    // Expands to ((cout << arg1 << ' '), (cout << arg2 << ' '), ..., (cout << argN << ' ')) << endl;
+    ( (cout << args << ' '), ... ) << endl;
+}
+
+template <typename... Args>
+void rPrintf(Args&& ...args) {
+   int dum = 0;
+   // Expands to (... = (cout << arg2 << ' ', dum) = (cout << arg1 << ' ', dum))
+   (... = (cout << args << ' ', dum));
+   cout << endl;
+}
+```
