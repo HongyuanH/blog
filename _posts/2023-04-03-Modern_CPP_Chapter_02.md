@@ -149,12 +149,10 @@ void printf2(T value, Ts... args) {
 }
 
 // Initialize list expansion
-template<typename T, typename... Ts>
-void printf3(T value, Ts... args) {
-    cout << value << ' ';
-    (void) initializer_list<T>{([&args] {
-        cout << args << ' ';
-    }(), value)...};
+template<typename... Ts>
+void printf3(Ts... args) {
+    // Expands to {0, ((cout << arg1 << ' '), 0), ((cout << arg2 << ' '), 0), ...}
+    int unused[] = {0, ((cout << args << ' '), 0)...};
     cout << endl;
 }
 ```
@@ -165,7 +163,7 @@ void printf3(T value, Ts... args) {
 template<typename... Ts>
 void printf4(Ts&&... args)
 {
-    // Expands to ((cout << arg1 << ' '), (cout << arg2 << ' '), ..., (cout << argN << ' ')) << endl;
+    // Expands to ((cout << arg1 << ' '), (cout << arg2 << ' '), ... << endl;
     ( (cout << args << ' '), ... ) << endl;
 }
 
