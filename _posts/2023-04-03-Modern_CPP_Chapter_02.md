@@ -175,3 +175,36 @@ void rPrintf(Args&& ...args) {
    cout << endl;
 }
 ```
+
+### Explicit delete default function
+
+```cpp
+class A{};
+
+class B {
+public:
+    B(int b) {};
+};
+
+class C {
+public:
+    C() = default;
+    C(int c) {};
+    C(const C& c) = delete;
+};
+
+int main(){
+    A a1;
+    A a2(a1);
+
+    // Not allowed: `B b;`
+    B b1(0);
+    B b2(b1);
+
+    C c1;
+    C c2(0);
+    // Not allowed: `C c3(c2);`
+    return 0;
+}
+```
+
