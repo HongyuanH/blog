@@ -84,6 +84,35 @@ int main()
 }
 ```
 
+### Range-based for loop
+
+This is not from the book:
+
+```cpp
+// This doesn't compile:
+std::vector<bool> v(10);
+for (auto& e : v)
+    e = true;
+
+// This is OK because we can convert a temporary value to a rvalue reference:
+std::vector<bool> v(10);
+for (auto&& e : v)
+    e = true;
+
+// This is also OK because vector<int> doesn't return a temporary value:
+vector<int> v(10);
+for (int& e : v)
+    e = 1;
+```
+
+From https://stackoverflow.com/a/25194424:
+
+> std::vector<bool> returns a temporary proxy object when the iterators are dereferenced. That means that you have to use either auto, auto&& or const auto& but not auto& because you can't bind a temporary value to a non-const l-value reference.
+
+From https://stackoverflow.com/a/13130795:
+
+> The only advantage I can see is when the sequence iterator returns a proxy reference and you need to operate on that reference in a non-const way.
+
 ### Type alias templates
 
 Templates are used to generate types. In traditional C++, typedef can define a new name for the type, but there is no way to define a new name for the template. Because the template is not a type. C++11 uses `using` to solve this problem.
