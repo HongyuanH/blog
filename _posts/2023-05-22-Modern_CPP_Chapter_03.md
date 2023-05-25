@@ -31,22 +31,68 @@ int main() {
 * xvalue, expiring value is the concept proposed by C++11 to introduce rvalue references (so in traditional C++, pure rvalue and rvalue are the same concepts), a value that is destroyed but can be moved.
 
 ```cpp
+int sourceArray[5] = {1, 2, 3, 4, 5};
+int* destinationArray = move(sourceArray); // same as static_cast<int*>(sourceArray)
+sourceArray[0] = 10;
+cout << destinationArray[0] << endl;       // 10
+```
+
+```cpp
 /* Note that a literal (except a string literal) is a prvalue. 
  * However, a string literal is an lvalue with type const char array. 
  */
-// Correct. The type of "01234" is const char [6], so it is an lvalue
-const char (&left)[6] = "01234";
 // Assert success. It is a const char [6] indeed. Note that decltype(expr)
 // yields lvalue reference if expr is an lvalue and neither an unparenthesized
 // id-expression nor an unparenthesized class member access expression.
 static_assert(std::is_same<decltype("01234"), const char(&)[6]>::value, "");
+ 
+// Correct. The type of "01234" is const char [6], so it is an lvalue
+const char (&left)[6] = "01234";
 // Error. "01234" is an lvalue, which cannot be referenced by an rvalue reference
 // const char (&&right)[6] = "01234";
+// Correct. std::move unconditionally convert lvalue to rvalue
+const char (&&right)[6] = std::move("01234");
 
 /* However, an array can be implicitly converted to a corresponding pointer.
  * The result, if not an lvalue reference, is an rvalue (xvalue if the result is an rvalue reference, prvalue otherwise)
  */
-const char*   p    = "01234"; // Correct. "01234" is implicitly converted to const char*
-const char*&& pr   = "01234"; // Correct. "01234" is implicitly converted to const char*, which is a prvalue.
-// const char*& pl = "01234"; // Error. There is no type const char* lvalue
+const char*   p      = "01234";   // Correct. "01234" is implicitly converted to const char*
+const char* (&&pr)   = "01234";   // Correct. "01234" is implicitly converted to const char*, which is a prvalue
+// const char* (&pl) = "01234";   // Error: lvalue can't ref to temp variable 
+const char* const (&pl) = "1234"; // Correct: const lvalue reference can extend temp variable's lifecycle
+```
+
+### rvalue reference and lvalue reference
+
+```cpp
+void reference(string& str) {
+    cout << "lvalue" << endl;
+}
+void reference(string&& str) {
+    cout << "rvalue" << endl;
+}
+
+int main()
+{
+    string  lv1 = "string,";       // lv1 is a lvalue
+    // string&& r1 = lv1;          // illegal, rvalue can't ref to lvalue
+    string&& rv1 = move(lv1);      // legal, move can convert lvalue to rvalue
+    cout << rv1 << endl;           // string,
+
+    // string& l2 = lv1 + lv1;     // illegal, lvalue can't ref to temp variable 
+                                   // (lv1 + lv1) is a temp variable
+
+    const string& lv2 = lv1 + lv1; // legal, const lvalue reference can
+                                   // extend temp variable's lifecycle
+    // lv2 += "Test";              // illegal, const ref can't be modified
+    cout << lv2 << endl;           // string,string,
+
+    string&& rv2 = lv1 + lv2;      // legal, rvalue ref extend lifecycle
+    rv2 += "string";               // legal, non-const reference can be modified
+    cout << rv2 << endl;           // string,string,string,string
+
+    reference(rv2);                // output: lvalue
+
+    return 0;
+}
 ```
