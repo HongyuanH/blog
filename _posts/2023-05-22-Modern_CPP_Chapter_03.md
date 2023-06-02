@@ -32,9 +32,11 @@ int main() {
 
 ### rvalue reference and lvalue reference
 
-* lvalue ref can't bind to rvalue
-* const lvalue ref can bind to rvalue, it extends the lifetime of the temporary object and the object can't be modified
-* rvalue ref can bind to rvalue, it extends the lifetime of the temporary object and the object can be modified
+* lvalue ref `&` is a reference that binds to an lvalue (persistent).
+* rvalue ref `&&` is a reference that binds to an rvalue (temporary).
+* lvalue ref can't bind to rvalue.
+* const lvalue ref can bind to rvalue, it extends the lifetime of the temporary object and the object can't be modified.
+* rvalue ref can bind to rvalue, it extends the lifetime of the temporary object and the object can be modified.
 
 Why not allow non-constant references to bind to non-lvalues? This is because there is a logic error in this approach:
 
