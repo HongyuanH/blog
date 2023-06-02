@@ -119,6 +119,24 @@ int main()
 }
 ```
 
+### Universal References
+
+https://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers
+
+> The essence of the issue is that `&&` in a type declaration sometimes means rvalue reference, but sometimes it means either rvalue reference or lvalue reference. As such, some occurrences of `&&` in source code may actually have the meaning of `&`, i.e., have the syntactic appearance of an rvalue reference (`&&`), but the meaning of an lvalue reference (`&`).
+
+```cpp
+Widget&& var1 = someWidget;      // here, “&&” means rvalue reference
+ 
+auto&& var2 = var1;              // here, “&&” does not mean rvalue reference
+ 
+template<typename T>
+void f(std::vector<T>&& param);  // here, “&&” means rvalue reference
+ 
+template<typename T>
+void f(T&& param);               // here, “&&”does not mean rvalue reference
+```
+
 ### Perfect forwarding
 
 ```cpp
