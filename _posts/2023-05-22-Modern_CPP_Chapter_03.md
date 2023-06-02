@@ -116,3 +116,48 @@ int main()
     return 0;
 }
 ```
+
+### Perfect forwarding
+
+```cpp
+void reference(int& v) {
+    std::cout << "lvalue reference" << std::endl;
+}
+void reference(int&& v) {
+    std::cout << "rvalue reference" << std::endl;
+}
+template <typename T>
+void pass(T&& v) {
+    std::cout << "          normal param passing: ";
+    reference(v);
+    std::cout << "       std::move param passing: ";
+    reference(std::move(v));
+    std::cout << "    std::forward param passing: ";
+    reference(std::forward<T>(v));
+    std::cout << "static_cast<T&&> param passing: ";
+    reference(static_cast<T&&>(v));
+}
+int main() {
+    std::cout << "rvalue pass:" << std::endl;
+    pass(1);
+
+    std::cout << "lvalue pass:" << std::endl;
+    int l = 1;
+    pass(l);
+
+    return 0;
+}
+
+/* Outputs are:
+rvalue pass:
+          normal param passing: lvalue reference
+       std::move param passing: rvalue reference
+    std::forward param passing: rvalue reference
+static_cast<T&&> param passing: rvalue reference
+lvalue pass:
+          normal param passing: lvalue reference
+       std::move param passing: rvalue reference
+    std::forward param passing: lvalue reference
+static_cast<T&&> param passing: lvalue reference
+*/
+```
