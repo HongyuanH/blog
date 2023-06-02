@@ -192,6 +192,6 @@ Reference Collapsing Rule:
 | T&&                     | lvalue ref              | T&                                      |
 | T&&                     | rvalue ref              | T&&                                     |
 
-* In the above code, for `pass(1)`, although `1` is an rvalue, since `v` is a reference, it is also an lvalue.
+* In the above code, for `pass(1)`, although `1` is an rvalue, `v` is a reference, which has a name and can be referenced by its address, therefore `v` is also an lvalue.
 * `l` is an lvalue, but can be passed to `pass(T&& v)`. Because of the Reference Collapsing Rule, it becomes `T&`.
 * Here `std::forward<T>(v)` is the same as `static_cast<T&&>(v)`.
