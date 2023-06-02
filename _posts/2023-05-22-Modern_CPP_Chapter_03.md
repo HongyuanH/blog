@@ -38,6 +38,24 @@ int main() {
 * const lvalue ref can bind to rvalue, it extends the lifetime of the temporary object and the object can't be modified.
 * rvalue ref can bind to rvalue, it extends the lifetime of the temporary object and the object can be modified.
 
+rvalue ref itself is a lvalue, because it has a name and can be referenced by its address:
+
+```cpp
+void reference(int& v) {
+    cout << "lvalue" << endl;
+}
+void reference(int&& v) {
+    cout << "rvalue" << endl;
+}
+int main() {
+    reference(1);       // prints "rvalue"
+    auto&& a = 1;
+    reference(a);       // prints "lvalue" because a is an lvalue
+    reference(move(a)); // prints "rvalue"
+    return 0;
+}
+```
+
 Why not allow non-constant references to bind to non-lvalues? This is because there is a logic error in this approach:
 
 ```cpp
@@ -183,6 +201,10 @@ static_cast<T&&> param passing: lvalue reference
 */
 ```
 
+* In the above code, although `1` is an rvalue, `v` is a reference, which has a name and can be referenced by its address, therefore `v` itself is an lvalue.
+* `l` is an lvalue, but can be passed to `pass(T&& v)`. Because of the Reference Collapsing Rule, it becomes `T&`.
+* Here `std::forward<T>(v)` is the same as `static_cast<T&&>(v)`.
+
 Reference Collapsing Rule:
 
 | Function parameter type | Argument parameter type | Post-derivation function parameter type |
@@ -191,7 +213,3 @@ Reference Collapsing Rule:
 | T&                      | rvalue ref              | T&                                      |
 | T&&                     | lvalue ref              | T&                                      |
 | T&&                     | rvalue ref              | T&&                                     |
-
-* In the above code, for `pass(1)`, although `1` is an rvalue, `v` is a reference, which has a name and can be referenced by its address, therefore `v` is also an lvalue.
-* `l` is an lvalue, but can be passed to `pass(T&& v)`. Because of the Reference Collapsing Rule, it becomes `T&`.
-* Here `std::forward<T>(v)` is the same as `static_cast<T&&>(v)`.
