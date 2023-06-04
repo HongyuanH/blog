@@ -89,17 +89,19 @@ int main()
 This is not from the book:
 
 ```cpp
-// This doesn't compile:
+// This doesn't compile because vector<bool> is a specialized version
+// The iterator returns a temporary bool object, which can't be bound to an lvalue ref 
 std::vector<bool> v(10);
 for (auto& e : v)
     e = true;
 
-// This is OK because we can convert a temporary value to a rvalue reference:
+// This is OK because we can convert a temporary object to a rvalue ref
+// Note that auto&& is universal reference and it doesn't mean e has to be an rvalue ref
 std::vector<bool> v(10);
 for (auto&& e : v)
     e = true;
 
-// This is also OK because vector<int> doesn't return a temporary value:
+// This is also OK because vector<int> doesn't return a temporary object
 vector<int> v(10);
 for (int& e : v)
     e = 1;
