@@ -1,6 +1,6 @@
 ---
 layout:            post
-title:             "Modern C++ Tutorials, Notes #3"
+title:             "Modern C++ Tutorials #3: Language Runtime Enhancement"
 date:              2023-05-22
 tags:              CPP
 category:          Modern CPP
