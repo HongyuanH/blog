@@ -105,6 +105,13 @@ for (auto&& e : v)
 vector<int> v(10);
 for (int& e : v)
     e = 1;
+    
+// Fun fact: this actually update the values of v to all true and assert pass!
+std::vector<bool> v(10);
+for (auto e : v)
+    e = true;
+for (auto e : v)
+    assert(e);
 ```
 
 From https://stackoverflow.com/a/25194424:
