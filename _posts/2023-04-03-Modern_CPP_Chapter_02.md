@@ -1,6 +1,6 @@
 ---
 layout:            post
-title:             "Modern C++ Tutorials, Notes #2"
+title:             "Modern C++ Tutorials #2: Language Usability"
 date:              2023-04-03
 tags:              CPP
 category:          Modern CPP
