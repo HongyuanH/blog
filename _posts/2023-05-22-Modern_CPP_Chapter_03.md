@@ -10,6 +10,20 @@ author:            hongyuan
 
 ## 03 Language Runtime Enhancement
 
+### std::function
+
+```cpp
+int foo(function<int( void )> lambda) {
+    return lambda();
+}
+
+int main() {
+    function<int( function<int( void )> )> bar = foo;
+    cout << bar( [](){ return 100; } ) << endl;
+    return 0;
+}
+```
+
 ### std::bind and std::placeholder
 
 ```cpp
