@@ -3,7 +3,7 @@ layout:            post
 title:             "Modern C++ Tutorials #2: Language Usability"
 date:              2023-04-03
 tags:              CPP
-category:          Modern CPP
+category:          CPP
 author:            hongyuan
 
 ---

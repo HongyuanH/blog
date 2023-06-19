@@ -3,7 +3,7 @@ layout:            post
 title:             "Modern C++ Tutorials #4: Containers"
 date:              2023-06-04
 tags:              CPP
-category:          Modern CPP
+category:          CPP
 author:            hongyuan
 
 ---
