@@ -154,8 +154,13 @@ public:
 
 ### [Leetcode 46. Permutations](https://leetcode.com/problems/permutations/description/)
 
-![permutations.drawio.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/permutations.svg#middle)
+Permutations is also a backtracking problem. Swap is used instead of push/pop.
 
+Approach #1:
+
+Red ones are the digits being swapped at each step. Push `nums` to the `ans` at leaf nodes. Backtracking is done at each iteration.
+
+![permutations-1.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/permutations-1.svg#middle)
 
 ```cpp
 class Solution {
@@ -165,19 +170,106 @@ public:
         return ans;
     }
     
-    void dfs(vector<int>& nums, int idx) {
-        if ( idx == nums.size() - 1 ) {
-            // Valid answer is found when reaching the end of nums
+    void dfs(vector<int>& nums, int depth) {
+        if ( depth == nums.size() - 1 ) {
+            // Valid answer is found at leaf nodes
             ans.push_back( nums );
             return;
         }
-        for ( int i=idx; i<nums.size(); i++ ) {
-            // Fix nums[0:idx] after swapping
-            swap( nums[i], nums[idx] );
-            // Find all remaining permutations
-            dfs( nums, idx + 1 );
-            // Backtracking
-            swap( nums[i], nums[idx] );
+        for ( int i=depth; i<nums.size(); i++ ) {
+            // Swap
+            swap( nums[i], nums[depth] );
+            // Fix nums[0:depth+1], find all permutations for nums[depth+1:]
+            dfs( nums, depth + 1 );
+            // Backtracking at each iteration
+            swap( nums[i], nums[depth] );
+        }
+    }
+    
+    vector<vector<int>> ans;
+};
+```
+
+Approach #2:
+
+Backtracking is done at the end after all iterations.
+
+![permutations-2.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/permutations-2.svg#middle)
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        dfs2( nums, 0 );
+        return ans;
+    }
+
+    void dfs2(vector<int>& nums, int depth) {
+        if ( depth == nums.size() - 1 ) {
+            // Valid answer is found at leaf nodes
+            ans.push_back( nums );
+            return;
+        }
+        for ( int i=depth; i<nums.size(); i++ ) {
+            // Swap
+            swap( nums[i], nums[depth] );
+            // Fix nums[0:depth+1], find all permutations for nums[depth+1:]
+            dfs2( nums, depth + 1 );
+        }
+        // Backtracking at the end, after all iterations
+        for ( int i=nums.size()-1; i>=depth; i-- ) {
+            swap( nums[i], nums[depth] );
+        }
+    }
+    
+    vector<vector<int>> ans;
+};
+```
+
+### [Leetcode 47. Permutations II](https://leetcode.com/problems/permutations-ii/description/)
+
+To avoid duplicates, sort the array. In order to maintain the sub-array(`nums[depth]`) as sorted, use the second approach, i.e. do the backtracking at the end after all iterations, and check if `nums[i] != nums[depth]`.
+
+![permutations-ii.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/permutations-ii.svg#middle)
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        sort( nums.begin(), nums.end() );
+        dfs( nums, 0 );
+        return ans;
+    }
+    
+    void dfs(vector<int>& nums, int depth) {
+        if ( depth == nums.size()-1 ) {
+            // Valid answer is found at leaf nodes
+            ans.push_back( nums );
+            return;
+        }
+        for ( int i=depth; i<nums.size(); i++ ) {
+            // Assuming `nums` is sorted at this point, as long as `dfs()` doesn't change 
+            // `nums`, after each iteration array `nums[depth+1:]` remains sorted.
+            // For example, assume nums is {1,2,3,4}  depth is 0:
+            // swap 1 & 1 -> {1,2,3,4} -> {2,3,4} is sorted
+            // swap 1 & 2 -> {2,1,3,4} -> {1,3,4} is sorted
+            // swap 2 & 3 -> {3,1,2,4} -> {1,2,4} is sorted
+            // swap 3 & 4 -> {4,1,2,3} -> {1,2,3} is sorted
+            if ( i == depth || nums[i] != nums[depth] ) {
+                // Swap
+                swap( nums[i], nums[depth] );
+                // Fix nums[0:depth+1], find all permutations for nums[depth+1:]
+                dfs( nums, depth + 1 );
+            }
+        }
+        // Backtracking at the end, after all iterations
+        // For example, assume nums is {4,1,2,3}  depth is 0:
+        // swap 3 & 4 -> {3,1,2,4}
+        // swap 2 & 3 -> {2,1,3,4}
+        // swap 1 & 2 -> {1,2,3,4}
+        // swap 1 & 1 -> {1,2,3,4}
+        for ( int i=nums.size()-1; i>=depth; i--) {
+            swap( nums[i], nums[depth] );
         }
     }
     
