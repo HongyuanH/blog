@@ -10,6 +10,6 @@ author:            hongyuan
 
 ## Intersection
 
-### [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
+### [Leetcode 160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
 
 ![intersection.svg]({{ site.github.url }}/res/2023-06-12-LinkedList/intersection.svg#middle)

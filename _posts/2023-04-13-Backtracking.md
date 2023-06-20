@@ -45,7 +45,7 @@ void dfs() {
 
 ## Examples
 
-### [subsets](https://leetcode.com/problems/subsets/description/)
+### [Leetcode 78. Subsets](https://leetcode.com/problems/subsets/description/)
 
 ![subset.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/subset.svg#middle)
 
@@ -75,7 +75,7 @@ public:
 };
 ```
 
-### [subsets II](https://leetcode.com/problems/subsets-ii/description/)
+### [Leetcode 90. Subsets II](https://leetcode.com/problems/subsets-ii/description/)
 
 ![subset2.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/subset2.svg#middle)
 
@@ -109,7 +109,7 @@ public:
 };
 ```
 
-### [generate parentheses](https://leetcode.com/problems/generate-parentheses/description/)
+### [Leetcode 22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/)
 
 ![parenthness.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/parenthness.svg#middle)
 
@@ -152,7 +152,7 @@ public:
 };
 ```
 
-### [permutations](https://leetcode.com/problems/permutations/description/)
+### [Leetcode 46. Permutations](https://leetcode.com/problems/permutations/description/)
 
 ![permutations.drawio.svg]({{ site.github.url }}/res/2023-04-13-Backtracking/permutations.svg#middle)
 
