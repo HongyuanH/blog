@@ -95,3 +95,110 @@ Relationship of `std::async`, `std::packaged_task` and `std::promise`? See [this
 >     * The promise, along with function arguments, are moved into a separate thread.
 >     * The new thread executes the function and fulfills the promise.
 >     * The original thread retrieves the result.
+
+## condition_variable
+
+To use condition_variable properly, mutex and a predicate are both needed:
+
+```cpp
+std::mutex mtx;
+std::condition_variable cv; 
+bool dataReady{false};
+
+void waitingForWork(){
+    std::cout << "Waiting " << std::endl;
+    // condition_variable::wait() only accept unique_lock
+    // acquire lock for reading
+    std::unique_lock<std::mutex> lck(mtx);
+    // release lock when waiting
+    cv.wait(lck, []{ return dataReady; });
+    // acquire lock again when awaken
+    std::cout << "Running " << std::endl;
+}
+
+void setDataReady(){
+    {
+        // acquire lock for writing
+        // prevent potential deadlock caused by missed signal
+        std::lock_guard<std::mutex> lck(mtx);  
+        dataReady = true;
+    }
+    std::cout << "Data prepared" << std::endl;
+    // notification can be done outside of the lock
+    cv.notify_one();
+}
+```
+
+Here's an example that would cause deadlock if `cv.notify_one()` is called before `cv.wait()`.
+
+It won't happen in the first example because when `cv.notify_one()` is called, `dataReady` is guaranteed to be true so `cv.wait()` won't block.
+
+```cpp
+std::mutex mtx;
+std::condition_variable cv;
+
+void waitingForWork(){
+    std::cout << "Waiting " << std::endl;
+    std::unique_lock<std::mutex> lck(mtx);
+    cv.wait(lck);
+    std::cout << "Running " << std::endl;
+}
+
+void setDataReady(){
+    std::cout << "Data prepared" << std::endl;
+    cv.notify_one();
+}
+```
+
+Another example that could also cause deadlock:
+
+```cpp
+std::mutex mtx;
+std::condition_variable cv;
+std::atomic<bool> dataReady{false};
+
+void waitingForWork(){
+    std::cout << "Waiting " << std::endl;
+    std::unique_lock<std::mutex> lck(mtx);
+    cv.wait(lck, []{ return dataReady.load(); });
+    std::cout << "Running " << std::endl;
+}
+
+void setDataReady(){
+    dataReady = true;
+    std::cout << "Data prepared" << std::endl;
+    cv.notify_one();
+}
+```
+
+Although unlikely, deadlock could occur when the code is executed in this order:
+- return dataReady.load(); // false
+- dataReady = true;
+- cv.notify_one();
+- cv.wait();
+
+This can be observed easily by making the below modification to the code:
+
+```cpp
+std::mutex mtx;
+std::condition_variable cv;
+std::atomic<bool> dataReady{false};
+
+void waitingForWork(){
+    std::cout << "Waiting " << std::endl;
+    std::unique_lock<std::mutex> lck(mtx);
+    cv.wait(lck, []{ 
+        bool tmp = dataReady.load();
+        std::this_thread::sleep_for(std::chrono::seconds(2)); 
+        return tmp;
+    });
+    std::cout << "Running " << std::endl;
+}
+
+void setDataReady(){
+    std::this_thread::sleep_for(std::chrono::seconds(1)); 
+    dataReady = true;
+    std::cout << "Data prepared" << std::endl;
+    cv.notify_one();
+}
+```
